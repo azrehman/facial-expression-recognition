@@ -1,0 +1,28 @@
+using variance of 0.05
+
+Test Metrics:
+Confusion Matrix:
+[[25  4  9  6  1  2 23]
+ [ 1 57  4  0  6  1  1]
+ [ 0  1 57  4  3  3  2]
+ [ 0  0  6 63  0  0  1]
+ [ 1  6  2  0 48  0 13]
+ [ 1  4  8  2  7 45  3]
+ [ 0  0  1  0  0  0 69]]
+Test Accuracy: 0.7428571428571429
+F1 score: 0.7316079531727776
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.89      0.36      0.51        70
+           1       0.79      0.81      0.80        70
+           2       0.66      0.81      0.73        70
+           3       0.84      0.90      0.87        70
+           4       0.74      0.69      0.71        70
+           5       0.88      0.64      0.74        70
+           6       0.62      0.99      0.76        70
+
+    accuracy                           0.74       490
+   macro avg       0.77      0.74      0.73       490
+weighted avg       0.77      0.74      0.73       490
+

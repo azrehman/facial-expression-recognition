@@ -1,0 +1,35 @@
+using radiate_faces_80_10_10 as data folder
+Using cuda device
+/rdata/abdullahzr/anaconda3/envs/pytorch/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1248: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/rdata/abdullahzr/anaconda3/envs/pytorch/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1248: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/rdata/abdullahzr/anaconda3/envs/pytorch/lib/python3.9/site-packages/sklearn/metrics/_classification.py:1248: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+Test Metrics:
+Confusion Matrix:
+[[ 6  0  6  0  0  1  1]
+ [ 2  2  9  0  0  1  1]
+ [ 2  0 12  0  0  1  0]
+ [ 3  0 14  0  0  0  4]
+ [ 8  0  3  0  0  0  4]
+ [ 4  0  6  0  0  4  0]
+ [ 2  0  1  0  0  0  5]]
+Test Accuracy: 0.28431372549019607
+F1 score: 0.21463835684078084
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.22      0.43      0.29        14
+           1       1.00      0.13      0.24        15
+           2       0.24      0.80      0.36        15
+           3       0.00      0.00      0.00        21
+           4       0.00      0.00      0.00        15
+           5       0.57      0.29      0.38        14
+           6       0.33      0.62      0.43         8
+
+    accuracy                           0.28       102
+   macro avg       0.34      0.32      0.24       102
+weighted avg       0.32      0.28      0.21       102
+
