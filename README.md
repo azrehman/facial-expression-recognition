@@ -32,14 +32,17 @@ We want to show that a simple ML model will not be as accurate for our task. An 
 6. Evaluate fine-tuned SVM classifier on test set.
 7. Record evaluation metrics (accuracy, F1 Score, confusion matrix).
 
-Hyperparameter Space:
+_Hyperparameter Space:_
+![](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/svm-hyperparameter-space.png)
 
 **Conclusion**
-Our SVM model obtained an accuracy of 72%, whereas our fine-tuned CNN model obtained an accuracy of 95%. Thus, our SVM model obtained lower accuracy when compared to our CNN model. This can be attributed to the idea that deep learning models perform better for classification problems. However, if we discount the time it took to do gridsearch, the SVM classifier was faster to train. 
+Our **SVM model obtained an accuracy of 72%**, whereas our **fine-tuned CNN model obtained an accuracy of 95%**. Thus, our SVM model obtained lower accuracy when compared to our CNN model. This can be attributed to the idea that deep learning models perform better for classification problems. However, if we discount the time it took to do gridsearch, the SVM classifier was faster to train. 
+
+![](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/SVM_Experiment_-_Image_2_-_CS_4664.png)
 
 Upon performing gridsearch with cross validation, we obtained the following best hyperparameters, C=100, Gamma=auto, Kernel=rbf. Now, if we take a look at this bar graph, you can see that prior to tunning our SVM model we were obtaining quite low accuracy, and performing gridsearch with tuning made the SVM Model perform better. However, our fine tuned classifier obtained much better accuracy compared to the other models. 
 
-
+Code for Experiment: 
 
 ### Exploring Bias in Our Model
 ### Adversarial Attack 
