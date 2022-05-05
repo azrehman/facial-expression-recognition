@@ -96,6 +96,10 @@ We also performed a Statistical Significance Study on the noise experiment for a
 **Using Vanilla Back Propagation**
 
 **Using Guided Back Propagation**
+**Motivation**
+
+
+
 ### Bonus: Image to Image Emotion Transfer
 
 
