@@ -4,6 +4,9 @@
 
 To accomplish our goal of facial expression recognition (FER), we apply ResNet-50, a pretrained deep-CNN, on two different datasets. In addition to classifying facial expressions, we explore many different aspects of computer vision by experimenting with our final trained classifier. We also intend to create different visualizations for our model to increase insight and understanding. This git repository has the code to the various investigative experiments that we conducted, as well as our final trained classifier.
 
+## How to Run Our Code
+(insert)
+
 ## Investigative Experiments
 - Experimenting Different Model Sizes
 - Experimenting Different Dataset Sizes
@@ -82,10 +85,21 @@ Unfortunately **our model was not as resilient to noise** as much as we hoped. Y
 Code for Experiment: 
 
 ### Noise Experiment - Statistical Significance Study
+We also performed a Statistical Significance Study on the noise experiment for a variance level of 0.1. We simply applied noise to our test set, and evaluated our model on the noisy test set 10 times, and plotted our test accuracies using a box plot. To summarize our findings, the median accuracy of our ten runs was 0.67, the minimum accuracy was 0.65, the maximum was 0.680, and that we have no outliers.
 
+<div align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-statistical-sig.png" width="520" height="450">
+</div>
 
 ### t-SNE Feature Visualizations
-### Saliency Map using Guided Back Propagation
+### Saliency Maps 
+**Using Vanilla Back Propagation**
+
+**Using Guided Back Propagation**
+**Motivation**
+
+
+
 ### Bonus: Image to Image Emotion Transfer
 
 
