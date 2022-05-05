@@ -47,6 +47,43 @@ Code for Experiment:
 ### Exploring Bias in Our Model
 ### Adversarial Attack 
 ### Introducing Noise
+**Motivation** Noisy images are actually more representative of real world data, which are normally not uniform and often contain many confounding details. Thus, our goal for this experiment was to evaluate our model’s performance on test images containing varying levels of noise.
+
+This was achieved by applying Gaussian Noise with different levels of variance on our test set. We predict that if our model is robust,then performance should not decrease, unless a really large amount of noise is applied to our test set.
+
+| Variance = 0.01 | Variance = 0.2 |
+| ------ | ------ |
+| <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-1.png"  width="500" height="520"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-2.png"  width="500" height="520"> |
+
+
+**Steps of SVM Experiment**
+1. Apply Gaussian noise to test images.
+2. Load model trained without noise.
+3. Evaluate model performance on the noisy test set.
+4. Repeat experiment steps 1-3 with different levels of variance (to change amount of noise).
+5. Compare accuracies to model performance on test set without noise.
+
+**Conclusion** 
+
+| Variance | Test Accuracy |
+| ------ | ------ |
+| 0 (*original*) | 0.96 |
+| 0.01 | 0.87 |
+| 0.05 | 0.74 |
+| 0.07 | 0.7 |
+| 0.1 | 0.64 |
+| 0.15 | 0.58 |
+| 0.2 | 0.47 |
+
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-line-graph.png"  width="750" height="520">
+
+Unfortunately **our model was not as resilient to noise** as much as we hoped. You can see that our model's accuracy decreases when we increase the amount of noise applied. This implies that our model would not perform very well on real world data except in the most ideal circumstances. In order to address this, there are multiple techniques we could apply. An obvious option is to retrain our model with a small random amount of noise added to our training images as a data augmentation. By training with noisy images, our model should be more agnostic to confounding details and perform better on real world images. Another option is to limit overfitting in our model using techniques such as _dropout, early stopping, and loss regularization_.
+
+Code for Experiment: 
+
+### Noise Experiment - Statistical Significance Study
+
+
 ### t-SNE Feature Visualizations
 ### Saliency Map using Guided Back Propagation
 ### Bonus: Image to Image Emotion Transfer
