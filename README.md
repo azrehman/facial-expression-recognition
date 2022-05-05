@@ -93,10 +93,18 @@ We also performed a Statistical Significance Study on the noise experiment for a
 
 ### t-SNE Feature Visualizations
 ### Saliency Maps 
+
+**Motivation** One of the best ways to interpret and visualize the CNN model is through saliency maps. Saliency maps are a way to measure the spatial support of a particular class in each image. It is a visualization technique to gain better insight into the decision-making of the CNN and
+helps to highlight what each layer of a convolutional layer focuses on.
+
 **Using Vanilla Back Propagation**
 
 **Using Guided Back Propagation**
-**Motivation**
+Guided backpropagation visualizes fine-grained details in the image.
+
+**Steps for Guided Back Propagation**
+
+**Conclusion**
 
 
 
