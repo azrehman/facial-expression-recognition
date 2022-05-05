@@ -4,6 +4,9 @@
 
 To accomplish our goal of facial expression recognition (FER), we apply ResNet-50, a pretrained deep-CNN, on two different datasets. In addition to classifying facial expressions, we explore many different aspects of computer vision by experimenting with our final trained classifier. We also intend to create different visualizations for our model to increase insight and understanding. This git repository has the code to the various investigative experiments that we conducted, as well as our final trained classifier.
 
+## How to Run Our Code
+(insert)
+
 ## Investigative Experiments
 - Experimenting Different Model Sizes
 - Experimenting Different Dataset Sizes
@@ -89,7 +92,10 @@ We also performed a Statistical Significance Study on the noise experiment for a
 </div>
 
 ### t-SNE Feature Visualizations
-### Saliency Map using Guided Back Propagation
+### Saliency Maps 
+**Using Vanilla Back Propagation**
+
+**Using Guided Back Propagation**
 ### Bonus: Image to Image Emotion Transfer
 
 
