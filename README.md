@@ -141,8 +141,8 @@ We used increased epsilon values to create more perturbed images and tested our 
 **Conclusion** 
 
 | Epsilon |0 (original)| 0.001 |  0.005 | 0.007 | 0.01 | 0.05 | 0.07 | 0.1 |
-| ------ | ------ |
-| Test Accuracy | 0.96 | 0.82 | 0.61 | 0.50 | 0.38 | 0.057 | 0.053 | 0.047|
+| ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| **Test Accuracy** | 0.96 | 0.82 | 0.61 | 0.50 | 0.38 | 0.057 | 0.053 | 0.047|
 
 
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_graph.png" width="500" height="400">
