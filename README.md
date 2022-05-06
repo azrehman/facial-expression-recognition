@@ -111,7 +111,7 @@ We also performed a Statistical Significance Study on the noise experiment for a
 ### Adversarial Attack 
 **Motivation** Adversarial machine learning, a technique that attempts to fool models with deceptive data, is a growing threat in the AI and machine learning research community. Therefore, to test our model's robustness, we used Fast Gradient Signed Method (FGSM). FGSM is a white-box attack as it leverages an internal component of the architecture which is its gradients. 
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/adversarial_formula.png" width="900" height="250">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/adversarial_formula.png" width="1000" height="200">
 </div>
 The implementation follows the formula as seen above, where it takes the original image and then adjusts each pixel of the input image based on the gradient and a factor which is the pixel-wise perturbation amount known as epsilon. As per theory, as the epsilon value increases, the image becomes more perturbed causing the model to become more inaccurate
 
