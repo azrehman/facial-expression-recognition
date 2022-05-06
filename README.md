@@ -169,9 +169,18 @@ helps to highlight what each layer of a convolutional layer focuses on.
 **Using Vanilla Backpropagation**
 The Vanilla Backpropagation technique creates a saliency map by forward passing the data and then passing the data backward to the input layer to get the gradient and then rendering the gadient as a normalized heatmap. 
 
+**Steps for Vanilla Backprogation Saliency Map**
+1. Apply custom transformations (pre-processing) on image
+2. Retrieve model's output after passing image
+3. Do backpropagation to get the derivative of the output based on the image
+4. Retireve the saliency map and also pick the maximum value from channels on each pixel.
+5. Plot saliency map
+
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/vanilla_saliency_map.png" width="600" height="450">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/vanilla_saliency_map.png" width="600" height="350">
 </div>
+
+The saliency map resulting from using the Vanilla Backpropagation approach shows a very noisy image since background features pass through the ReLu activation functions which causes it to be unclear. However, we can see that the brighter red spots are focused around the eyes and mouth area which provide us with an indication of what the model focuses on when trying to classify the image.
 
 **Using Guided Backpropagation**
 Guided Backpropagation combines the previously used Vanilla Backpropagation technique at ReLUs with DeconvNets. Guided backpropagation visualizes gradients with respect to the image where negative gradients are suppressed when backpropagating through ReLU layers. Essentially, this methodology aims to capture pixels detected by neurons, not the ones that suppress neurons. 
