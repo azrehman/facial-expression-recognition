@@ -36,9 +36,7 @@ To accomplish our goal of facial expression recognition (FER), we apply ResNet-5
 | *No. of Images* | 3920 | 3430 | 2450 | 980 | 490 |
 | *Accuracy* | 0.96 | 0.94 | 0.94 | 0.89 | 0.83 |
 
-<div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/dataset_size_graph.png" width="550" height="450">
-</div>
 
 The results that we found were quite impressive given that the amount of data the model was trained with was significantly less. The graph above shows the downward trend in accuracy the dataset size used for training decreases. There is roughly a 10% decrease in accuracy from using 80% of the dataset to only 10%. We attribute this decent accuracy to the fact that we used transfer learning instead of training the model from scratch. Additionally, since data augmentations were applied, it artificially increased the number of training samples which could have contributed to the higher accuracy rates. 
 
@@ -168,12 +166,17 @@ these types of attacks since the attacker has access to the model parameters.
 **Motivation** One of the best ways to interpret and visualize the CNN model is through saliency maps. Saliency maps are a way to measure the spatial support of a particular class in each image. It is a visualization technique to gain better insight into the decision-making of the CNN and
 helps to highlight what each layer of a convolutional layer focuses on.
 
-**Using Vanilla Back Propagation**
+**Using Vanilla Backpropagation**
+The Vanilla Backpropagation technique creates a saliency map by forward passing the data and then passing the data backward to the input layer to get the gradient and then rendering the gadient as a normalized heatmap. 
 
-**Using Guided Back Propagation**
+<div align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/vanilla_saliency_map.png" width="600" height="450">
+</div>
+
+**Using Guided Backpropagation**
 Guided Backpropagation combines the previously used Vanilla Backpropagation technique at ReLUs with DeconvNets. Guided backpropagation visualizes gradients with respect to the image where negative gradients are suppressed when backpropagating through ReLU layers. Essentially, this methodology aims to capture pixels detected by neurons, not the ones that suppress neurons. 
 
-**Steps for Guided Back Propagation**
+**Steps for Guided Backpropagation**
 
 (STEPS)
 
