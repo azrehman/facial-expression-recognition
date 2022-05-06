@@ -118,7 +118,7 @@ The implementation follows the formula as seen above, where it takes the origina
 We used increased epsilon values to create more perturbed images and tested our model on these adversarial images to observe how well it could classify the images.
 
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/faces_epsilon_values.png" width="520" height="400">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/faces_epsilon_values.png" width="520" height="430">
 </div>
 
 **Steps of Adversarial Attack**
