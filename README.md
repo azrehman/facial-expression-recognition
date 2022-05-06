@@ -31,13 +31,13 @@ To accomplish our goal of facial expression recognition (FER), we apply ResNet-5
 
 **Conclusion**
 
-| % of Dataset | 80% (original) | 70% | 50% | 20% | 10% |
+| % of Dataset | 80% (original) |   70%   |   50%   |   20%   |   10%   |
 | ------ | ------ | ------ | ------ | ------ | ------ |
 | *No. of Images* | 3920 | 3430 | 2450 | 980 | 490 |
 | *Accuracy* | 0.96 | 0.94 | 0.94 | 0.89 | 0.83 |
 
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/faces_epsilon_values.png" width="520" height="450">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/dataset_size_graph.png" width="520" height="450">
 </div>
 
 The results that we found were quite impressive given that the amount of data the model was trained with was significantly less. The graph above shows the downward trend in accuracy the dataset size used for training decreases. There is roughly a 10% decrease in accuracy from using 80% of the dataset to only 10%. We attribute this decent accuracy to the fact that we used transfer learning instead of training the model from scratch. Additionally, since data augmentations were applied, it artificially increased the number of training samples which could have contributed to the higher accuracy rates. 
