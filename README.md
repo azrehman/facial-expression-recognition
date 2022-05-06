@@ -47,7 +47,6 @@ Upon performing gridsearch with cross validation, we obtained the following best
 Code for Experiment: 
 
 ### Exploring Bias in Our Model
-### Adversarial Attack 
 ### Introducing Noise
 **Motivation** Noisy images are actually more representative of real world data, which are normally not uniform and often contain many confounding details. Thus, our goal for this experiment was to evaluate our model’s performance on test images containing varying levels of noise.
 
@@ -58,7 +57,7 @@ This was achieved by applying Gaussian Noise with different levels of�
 | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-1.png"  width="500" height="520"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-2.png"  width="500" height="520"> |
 
 
-**Steps of SVM Experiment**
+**Steps of Noise Experiment**
 1. Apply Gaussian noise to test images.
 2. Load model trained without noise.
 3. Evaluate model performance on the noisy test set.
@@ -89,6 +88,59 @@ We also performed a Statistical Significance Study on the noise experiment for a
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-statistical-sig.png" width="520" height="450">
 </div>
+
+### Adversarial Attack 
+**Motivation** Adversarial machine learning, a technique that attempts to fool models with deceptive data, is a growing threat in the AI and machine learning research community. Therefore, to test our model's robustness, we used Fast Gradient Signed Method (FGSM). FGSM is a white-box attack as it leverages an internal component of the architecture which is its gradients. 
+
+We used increased epsilon valuese to create more perturbed images and tested our model on these adversarial images to observe how well it could classify the images.
+
+<div align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/faces_epsilon_values.png" width="520" height="450">
+</div>
+
+**Steps of Adversarial Attack**
+1. Load the trained model.
+2. Predict the label on the original test image.
+3. Create perturbed image (for the current epsilon value) from original test image.
+4. Let model predict on that perturbed image 
+5. Record number of times model misclassified with perturbed images
+6. Repeat steps 3-5 for different epsilon values.
+
+**Conclusion** 
+
+| Epsilon | Test Accuracy |
+| ------ | ------ |
+| 0 (*original*) | 0.96 |
+| 0.001 | 0.82 |
+| 0.005 | 0.61 |
+| 0.007 | 0.50 |
+| 0.01 | 0.38 |
+| 0.05 | 0.057 |
+| 0.07 | 0.053 |
+| 0.1 | 0.047 |
+
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_graph.png" width="520" height="450">
+
+The results show that even a small epsilon value can have quite a drastic impact on the
+performance of the model. An epsilon value of 0 gives us our original accuracy of 96% but an epsilon of 0.1 drops the accuracy significantly to 4.7%.
+
+<div align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.png" width="520" height="450">
+</div>
+<div align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.01.png" width="520" height="450">
+</div>
+
+The figure above shows that with an epsilon of 0 the model is very confident and there are no incorrect predictions but an epsilon of 0.01 the model is very confident but on the wrong expression label since it believes that a happy image is actually afraid. Although, the epsilon value is very small and the perturbed image looks untampered, the accuracy is much lower.
+
+<div align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.3.png" width="520" height="450">
+</div>
+
+Moreover, When the epsilon value is too high, such as 0.3, the model still misclassifies the image but it is no longer confident in one label and is more confused and this high epsilon value acts similarly to simply adding noise to the image. 
+
+Overall, there is an inverse relationship where as the epsilon value increases, the test accuracy of our model decreases. This investigation proves to show that our model might not be the most robust against such white box attacks but it is particularly hard to make a model defend itself against
+these types of attacks since the attacker has access to the model parameters. 
 
 ### t-SNE Feature Visualizations
 ### Saliency Maps 
