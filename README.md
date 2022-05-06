@@ -21,6 +21,28 @@ To accomplish our goal of facial expression recognition (FER), we apply ResNet-5
 ## Experiments
 ### Experimenting Different Model Sizes
 ### Experimenting Different Dataset Sizes
+**Motivation** Perform a sensitivity analysis to quantify the relationship between dataset size and model performance. We want to take fractions of the orginial dataset and observe how the model's ability to classify accurately changes. 
+
+**Steps of Dataset Size Experiment**
+1. Create a smaller training set from the original dataset.
+2. Retrain main classifier under same settings for each dataset subset.
+3. Record the test accuracy on the subset of the orginial dataset.
+4. Repeat steps 1-3 for different dataset sizes.
+
+**Conclusion**
+
+| % of Dataset | 80% (original) | 70% | 50% | 20% | 10% |
+| ------ | ------ | ------ | ------ | ------ | ------ |
+| *No. of Images* | 3920 | 3430 | 2450 | 980 | 490 |
+| *Accuracy* | 0.96 | 0.94 | 0.94 | 0.89 | 0.83 |
+
+<div align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/faces_epsilon_values.png" width="520" height="450">
+</div>
+
+The results that we found were quite impressive given that the amount of data the model was trained with was significantly less. The graph above shows the downward trend in accuracy the dataset size used for training decreases. There is roughly a 10% decrease in accuracy from using 80% of the dataset to only 10%. We attribute this decent accuracy to the fact that we used transfer learning instead of training the model from scratch. Additionally, since data augmentations were applied, it artificially increased the number of training samples which could have contributed to the higher accuracy rates.
+
+
 ### Support Vector Machine Classifier vs Final Trained Classifier
 **Motivation** Investigate how a simple SVM model (our non-deep-learning baseline) performs compared to our fine tuned CNN classifier.
 We want to show that a simple ML model will not be as accurate for our task. An SVM model will not be as comparable for the task of accurately classifying emotions.  
@@ -124,16 +146,16 @@ We used increased epsilon values to create more perturbed images and tested our 
 The results show that even a small epsilon value can have quite a drastic impact on the performance of the model. An epsilon value of 0 gives us our original accuracy of 96% but an epsilon of 0.1 drops the accuracy significantly to 4.7%.
 
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.png" width="900" height="400">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.png" width="900" height="350">
 </div>
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.01.png" width="900" height="400">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.01.png" width="900" height="350">
 </div>
 
 The figure above shows that with an epsilon of 0 the model is very confident and there are no incorrect predictions but an epsilon of 0.01 the model is very confident but on the wrong expression label since it believes that a happy image is actually afraid. Although, the epsilon value is very small and the perturbed image looks untampered, the accuracy is much lower.
 
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.3.png" width="900" height="400">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.3.png" width="900" height="350">
 </div>
 
 Moreover, When the epsilon value is too high, such as 0.3, it acts similarly to adding noise to the image.  This is because the model still misclassifies the image but it is no longer confident in one label and is more confused which causes it to have some confidence in numerous labels.
