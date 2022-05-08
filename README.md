@@ -9,9 +9,8 @@ To accomplish our goal of facial expression recognition (FER), we apply ResNet-5
 1. Install [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) (python enviroment manager)
 2. Clone this repository\
 `git clone https://git.cs.vt.edu/sdeepti/facial-expression-recognition.git`
-3. Create a conda enviroment\
-`conda create --clone base --name face_env`
-4. Activate enviroment\
+3. Create and activate conda enviroment\
+`conda create --clone base --name face_env`\
 `conda activate face_env`
 4. Install [pytorch](https://pytorch.org/get-started/locally/)\
 `conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch`
