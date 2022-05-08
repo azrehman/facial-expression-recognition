@@ -25,15 +25,16 @@ Abdullah
 Abdullah
 
 ## Investigative Experiments
-- Experimenting Different Model Sizes
-- Experimenting Different Dataset Sizes
-- Support Vector Machine Classifier vs Final Trained Classifier
-- Exploring Bias in Our Model
-- Adversarial Attack 
-- Introducing Noise
-- t-SNE Feature Visualizations
-- Saliency Map using Guided Back Propagation
-- Bonus: Image to Image Emotion Transfer
+- Experimenting Different Model Sizes (todo link)
+- [Experimenting Different Dataset Sizes](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#experimenting-different-dataset-sizes)
+- [Support Vector Machine Classifier Comparison](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#support-vector-machine-classifier-vs-final-trained-classifier)
+- Exploring Bias in Our Model (todo link)
+- [Introducing Noise](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#introducing-noise)
+- [Adversarial Attack](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#adversarial-attack) 
+- t-SNE Feature Visualizations (todo link)
+- [Saliency Map Visualization using Guided Back Propagation](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#saliency-maps)
+- Bonus: Image to Image Emotion Transfer (todo link)
+
 
 ## Experiments
 ### Experimenting Different Model Sizes
