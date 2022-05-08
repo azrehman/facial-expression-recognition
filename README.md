@@ -124,17 +124,8 @@ This was achieved by applying Gaussian Noise with different levels of�
 
 **Conclusion** 
 
-| Variance | Test Accuracy |
-| ------ | ------ |
-| 0 (*original*) | 0.96 |
-| 0.01 | 0.87 |
-| 0.05 | 0.74 |
-| 0.07 | 0.7 |
-| 0.1 | 0.64 |
-| 0.15 | 0.58 |
-| 0.2 | 0.47 |
 
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-line-graph.png"  width="750" height="520">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise_conclusion.png"  width="750" height="520">
 
 Unfortunately **our model was not as resilient to noise** as much as we hoped. You can see that our model's accuracy decreases when we increase the amount of noise applied. This implies that our model would not perform very well on real world data except in the most ideal circumstances. In order to address this, there are multiple techniques we could apply. An obvious option is to retrain our model with a small random amount of noise added to our training images as a data augmentation. By training with noisy images, our model should be more agnostic to confounding details and perform better on real world images. Another option is to limit overfitting in our model using techniques such as _dropout, early stopping, and loss regularization_.
 
