@@ -111,7 +111,8 @@ This was achieved by applying Gaussian Noise with different levels of�
 
 | Variance = 0.01 | Variance = 0.2 |
 | ------ | ------ |
-| <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-1.png"  width="500" height="520"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-2.png"  width="500" height="520"> |
+| <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-1.png"  width="300" height="320"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-2.png"  width="300" height="320"> |
+
 
 
 **Steps of Noise Experiment**
