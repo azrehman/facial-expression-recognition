@@ -17,7 +17,8 @@ The preprocessing steps we implemented were to add rotation, horizontal flips, b
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/preprocessing.png" width="820" height="200">
 </div>
 
-Code: https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/main_resnet50/preprocessing_visualization.ipynb
+[Link to preproessing code.](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/main_resnet50/preprocessing_visualization.ipynb)
+
 ## Our Chosen Classifier Architecture 
 Abdullah
 
