@@ -193,8 +193,12 @@ The saliency map resulting from using the Vanilla Backpropagation approach shows
 Guided Backpropagation combines the previously used Vanilla Backpropagation technique at ReLUs with DeconvNets. Guided backpropagation visualizes gradients with respect to the image where negative gradients are suppressed when backpropagating through ReLU layers. Essentially, this methodology aims to capture pixels detected by neurons, not the ones that suppress neurons. 
 
 **Steps for Guided Backpropagation**
-
-(STEPS)
+1. Apply custom transformations (pre-processing) on image.
+2. Retrieve model's output after passing image.
+3. Do backpropagation to get the derivative of the output based on the image.
+4. Save the colored gradients. 
+5. Convert the colored gradients to grayscale and save grayscale gradients. 
+6. Plot the positive and negative saliency maps. 
 
 **Conclusion**
 |Guided Backpropagation Saliency|Colored Guided Backpropagation|Guided Backpropagation Negative Saliency|Guided Backpropagation Positive Saliency|
