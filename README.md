@@ -35,7 +35,7 @@ The preprocessing steps we implemented were to add rotation, horizontal flips, b
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/preprocessing.png" width="820" height="200">
 </div>
 
-[Link to preproessing code.](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/main_resnet50/preprocessing_visualization.ipynb)
+[Link to Preprocessing Code.](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/main_resnet50/preprocessing_visualization.ipynb)
 
 ## Our Chosen Classifier Architecture 
 Abdullah
@@ -99,14 +99,13 @@ Our **SVM model obtained an accuracy of 72%**, whereas our **fine-tuned CNN mode
 ![](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/SVM_Experiment_-_Image_2_-_CS_4664.png)
 
 Upon performing gridsearch with cross validation, we obtained the following best hyperparameters, C=100, Gamma=auto, Kernel=rbf. Now, if we take a look at this bar graph, you can see that prior to tunning our SVM model we were obtaining quite low accuracy, and performing gridsearch with tuning made the SVM Model perform better. However, our fine tuned classifier obtained much better accuracy compared to the other models. 
+ 
+[Code for SVM Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/svm_experiment/svm_experiment.ipynb)
 
-Code for Experiment: 
 
 ### Exploring Bias in Our Model
 ### Introducing Noise
 **Motivation** Noisy images are actually more representative of real world data, which are normally not uniform and often contain many confounding details. Thus, our goal for this experiment was to evaluate our model’s performance on test images containing varying levels of noise.
-
-**Code for Experiment:** https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/noise_experiment/noise_experiment.ipynb
 
 This was achieved by applying Gaussian Noise with different levels of variance on our test set. We predict that if our model is robust,then performance should not decrease, unless a really large amount of noise is applied to our test set.
 
@@ -123,11 +122,11 @@ This was achieved by applying Gaussian Noise with different levels of�
 5. Compare accuracies to model performance on test set without noise.
 
 **Conclusion** 
-
-
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise_conclusion.png">
 
 Unfortunately **our model was not as resilient to noise** as much as we hoped. You can see that our model's accuracy decreases when we increase the amount of noise applied. This implies that our model would not perform very well on real world data except in the most ideal circumstances. In order to address this, there are multiple techniques we could apply. An obvious option is to retrain our model with a small random amount of noise added to our training images as a data augmentation. By training with noisy images, our model should be more agnostic to confounding details and perform better on real world images. Another option is to limit overfitting in our model using techniques such as _dropout, early stopping, and loss regularization_.
+
+[Code for Noise Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/noise_experiment/noise_experiment.ipynb)
 
 ### Noise Experiment - Statistical Significance Study
 We also performed a Statistical Significance Study on the noise experiment for a variance level of 0.1. We simply applied noise to our test set, and evaluated our model on the noisy test set 10 times, and plotted our test accuracies using a box plot. To summarize our findings, the median accuracy of our ten runs was 0.67, the minimum accuracy was 0.65, the maximum was 0.680, and that we have no outliers.
