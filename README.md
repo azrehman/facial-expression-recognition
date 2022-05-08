@@ -205,7 +205,7 @@ Guided Backpropagation combines the previously used Vanilla Backpropagation tech
 | ------ | ------ | ------ | ------ |
 | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/AF01HAHR_Guided_BP_gray.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/AF01HAHR_Guided_BP_color.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/AF01HAHR_neg_sal.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/AF01HAHR_pos_sal.png"> |
 
-Based on the above results we can see that our fine-tuned classifier tends to focus on specific regions of the human face to help correctly classify the human emotion. Our model mainly focuses on the center region of the face (the eyes, eyebrows, and mouth area), since the pixels seem to be the most highlighted in those parts in the Guided Backpropagation Saliency map. In addition to this, upon analyzing the Colored Guided Backpropagation map, the main features that the model is focusing on further well defined and outlined.  
+Based on the above results we can see that our fine-tuned classifier tends to focus on specific regions of the human face to help correctly classify the human emotion. Our model mainly focuses on the center region of the face (the eyes, eyebrows, and mouth area), since the pixels seem to be the most highlighted in those parts in the Guided Backpropagation Saliency map. In addition to this, upon analyzing the Colored Guided Backpropagation map, the main features that the model is focusing on is further well defined and outlined.  
 
 
 
