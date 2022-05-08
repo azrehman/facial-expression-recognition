@@ -6,7 +6,7 @@ import os
 import numpy as np
 
 import torch
-from torchvision import datasets, transforms, models
+from torchvision import transforms, models
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
@@ -17,7 +17,6 @@ from sklearn.metrics import confusion_matrix, classification_report, accuracy_sc
 
 
 model_path = '../main_resnet50/FEC_resnet50_trained_face_images_80_10_10.pt'
-# model_path = '../dataset_size_experiment/dataset_size_70/FEC_resnet50_trained_face_images_70_10_20.pt'
 data_dir = '../face_images_80_10_10'
 num_classes = 7
 
@@ -45,11 +44,7 @@ model.eval()
 
 for p in model.parameters():
 	p.requires_grad = False
-
-
-# transfer model to gpu if available
-
-
+	
 
 # load test dataset and create dataloader
 test_transforms = transforms.Compose([
@@ -112,10 +107,6 @@ def fgsm_attack(model, imgs, labels, epsilon):
 
 def graph_fgsm_confidence(model, device, image_batch, label_batch, epsilon):
     print(f'epsilon is {epsilon}')
-    # filename = f'pred_{epsilon}.png'
-    # Accuracy counter
-
-
     adv_images, noise_grad = fgsm_attack(model, image_batch, label_batch, epsilon)
 
     with torch.no_grad():
