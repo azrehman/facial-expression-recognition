@@ -18,6 +18,13 @@ To accomplish our goal of facial expression recognition (FER), we apply ResNet-5
 `python main_resnet50/train_classifier.py`\
 (note you may need to modify image_dir path to `../data/<dataset name>`)
 
+## Datasets We Used
+We chose datasets that ensure a sufficient amount of images for each label (e.g. approximately at least 1000 images for each expression) and ensure that our dataset contains clear visibility of the face and the images are of good quality to increase accuracy of our model. We also wanted to select a second dataset with data that is evenly distributed across races and genders so that we can investigate F.E.R model bias for emotions across these demographics and make our model more universal. 
+
+Our primary dataset is the [Karolinska Directed Emotional Faces (KDEF)](https://www.kdef.se/) dataset which is a publicly available dataset consisting of 4900 facial expression images. It contains 70 individuals, 45 women and 45 men, each displaying 7 different emotional expressions, each expression being photographed (twice) from 5 different angles. We will be using all the images within KDEF. 
+
+The second dataset we used was [The RADIATE Emotional Face Stimulus Set](http://fablab.yale.edu/page/assays-tools) which is another public available dataset that meets the requirement. The RADIATE face stimulus set contains over 1,700 unique photographs of over 100 racially and ethnically diverse models (25\% non-Hispanic White and 75\% minority or ethnic group). Each model posed 16 different facial expressions. 
+
 ## Transfer Learning
 Transfer learning is a machine learning technique in which a pre-trained model is being repurposed for a similar task of interest. Applying transfer learning to our project was seen to be advantageous as it would reduce the complexity of our task and thereby increase efficiency. 
 The image below displays a schematic architecture of the pre-trained ResNet Model plus the added Dense layers for facial expression recognition. This pre-trained model has been trained with ImageNet which is a large dataset for the purposes of image classification which is suitable for FER. Repurposing a pre-trained deep CNN involves two steps, replacing the original classifier with a new one and fine-tuning the model. The added classifier is achieved by combining some number of dense layers, and this gives us the opportunity to fine-tune the dense layers and a selected few layers of the pre-trained model with our data, and this is possible because they are all in the same pipeline.
@@ -54,8 +61,6 @@ Abdullah
 - [Saliency Map Visualization using Guided Back Propagation](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#saliency-maps)
 - Bonus: Image to Image Emotion Transfer (todo link)
 
-
-## Experiments
 ### Experimenting Different Model Sizes
 ### Experimenting Different Dataset Sizes
 **Motivation** Perform a sensitivity analysis to quantify the relationship between dataset size and model performance. We want to take fractions of the orginial dataset and observe how the model's ability to classify accurately changes. 
