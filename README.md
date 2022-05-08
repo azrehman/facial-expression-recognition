@@ -91,6 +91,7 @@ We want to show that a simple ML model will not be as accurate for our task. An 
 7. Record evaluation metrics (accuracy, F1 Score, confusion matrix).
 
 _Hyperparameter Space:_
+
 ![](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/svm-hyperparameter-space.png)
 
 **Conclusion**
