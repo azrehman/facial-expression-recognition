@@ -5,10 +5,37 @@
 To accomplish our goal of facial expression recognition (FER), we apply ResNet-50, a pretrained deep-CNN, on two different datasets. In addition to classifying facial expressions, we explore many different aspects of computer vision by experimenting with our final trained classifier. We also intend to create different visualizations for our model to increase insight and understanding. This git repository has the code to the various investigative experiments that we conducted, as well as our final trained classifier.
 
 ## How to Run Our Code
-Abdullah
+
+1. Install [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) (python enviroment manager)
+2. Clone this repository\
+`git clone https://git.cs.vt.edu/sdeepti/facial-expression-recognition.git`
+3. Create and activate conda enviroment\
+`conda create --clone base --name face_env`\
+`conda activate face_env`
+4. Install [pytorch](https://pytorch.org/get-started/locally/)\
+`conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch`
+4. Run our code :)\
+`python main_resnet50/train_classifier.py`\
+(note you may need to modify image_dir path to `../data/<dataset name>`)
 
 ## Transfer Learning
-Deepti
+Transfer learning is a machine learning technique in which a pre-trained model is being repurposed for a similar task of interest. Applying transfer learning to our project was seen to be advantageous as it would reduce the complexity of our task and thereby increase efficiency. 
+The image below displays a schematic architecture of the pre-trained ResNet Model plus the added Dense layers for facial expression recognition. This pre-trained model has been trained with ImageNet which is a large dataset for the purposes of image classification which is suitable for FER. Repurposing a pre-trained deep CNN involves two steps, replacing the original classifier with a new one and fine-tuning the model. The added classifier is achieved by combining some number of dense layers, and this gives us the opportunity to fine-tune the dense layers and a selected few layers of the pre-trained model with our data, and this is possible because they are all in the same pipeline.
+Post training, we then feed our image into the model and the output of the final dense layer would be of length 7 each referring to a specific expression and their respective probabilities.
+
+<div align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/transfer_learning.png" width="850" height="400">
+</div>
+
+
+## Preprocessing Steps
+The preprocessing steps we implemented were to add rotation, horizontal flips, brightness, contrast and saturation modifications to expand the scope of the images we have in our dataset with the goal of improving our model’s performance. We then applied data normalization according to the ImageNet dataset standards and image resizing for faster training. Although grayscaling was a plausible preprocessing step that could be used to reduce noise, we did no proceed with this step as the pre-trained model we chose was trained on color images.
+
+<div align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/preprocessing.png" width="820" height="200">
+</div>
+
+[Link to Preprocessing Code.](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/main_resnet50/preprocessing_visualization.ipynb)
 
 ## Our Chosen Classifier Architecture 
 Abdullah
@@ -17,15 +44,16 @@ Abdullah
 Abdullah
 
 ## Investigative Experiments
-- Experimenting Different Model Sizes
-- Experimenting Different Dataset Sizes
-- Support Vector Machine Classifier vs Final Trained Classifier
-- Exploring Bias in Our Model
-- Adversarial Attack 
-- Introducing Noise
-- t-SNE Feature Visualizations
-- Saliency Map using Guided Back Propagation
-- Bonus: Image to Image Emotion Transfer
+- Experimenting Different Model Sizes (todo link)
+- [Experimenting Different Dataset Sizes](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#experimenting-different-dataset-sizes)
+- [Support Vector Machine Classifier Comparison](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#support-vector-machine-classifier-vs-final-trained-classifier)
+- Exploring Bias in Our Model (todo link)
+- [Introducing Noise](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#introducing-noise)
+- [Adversarial Attack](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#adversarial-attack) 
+- t-SNE Feature Visualizations (todo link)
+- [Saliency Map Visualization using Guided Back Propagation](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#saliency-maps)
+- Bonus: Image to Image Emotion Transfer (todo link)
+
 
 ## Experiments
 ### Experimenting Different Model Sizes
@@ -71,14 +99,13 @@ Our **SVM model obtained an accuracy of 72%**, whereas our **fine-tuned CNN mode
 ![](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/SVM_Experiment_-_Image_2_-_CS_4664.png)
 
 Upon performing gridsearch with cross validation, we obtained the following best hyperparameters, C=100, Gamma=auto, Kernel=rbf. Now, if we take a look at this bar graph, you can see that prior to tunning our SVM model we were obtaining quite low accuracy, and performing gridsearch with tuning made the SVM Model perform better. However, our fine tuned classifier obtained much better accuracy compared to the other models. 
+ 
+[Code for SVM Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/svm_experiment/svm_experiment.ipynb)
 
-Code for Experiment: 
 
 ### Exploring Bias in Our Model
 ### Introducing Noise
 **Motivation** Noisy images are actually more representative of real world data, which are normally not uniform and often contain many confounding details. Thus, our goal for this experiment was to evaluate our model’s performance on test images containing varying levels of noise.
-
-**Code for Experiment:** https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/noise_experiment/noise_experiment.ipynb
 
 This was achieved by applying Gaussian Noise with different levels of variance on our test set. We predict that if our model is robust,then performance should not decrease, unless a really large amount of noise is applied to our test set.
 
@@ -95,20 +122,11 @@ This was achieved by applying Gaussian Noise with different levels of�
 5. Compare accuracies to model performance on test set without noise.
 
 **Conclusion** 
-
-| Variance | Test Accuracy |
-| ------ | ------ |
-| 0 (*original*) | 0.96 |
-| 0.01 | 0.87 |
-| 0.05 | 0.74 |
-| 0.07 | 0.7 |
-| 0.1 | 0.64 |
-| 0.15 | 0.58 |
-| 0.2 | 0.47 |
-
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-line-graph.png"  width="750" height="520">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise_conclusion.png">
 
 Unfortunately **our model was not as resilient to noise** as much as we hoped. You can see that our model's accuracy decreases when we increase the amount of noise applied. This implies that our model would not perform very well on real world data except in the most ideal circumstances. In order to address this, there are multiple techniques we could apply. An obvious option is to retrain our model with a small random amount of noise added to our training images as a data augmentation. By training with noisy images, our model should be more agnostic to confounding details and perform better on real world images. Another option is to limit overfitting in our model using techniques such as _dropout, early stopping, and loss regularization_.
+
+[Code for Noise Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/noise_experiment/noise_experiment.ipynb)
 
 ### Noise Experiment - Statistical Significance Study
 We also performed a Statistical Significance Study on the noise experiment for a variance level of 0.1. We simply applied noise to our test set, and evaluated our model on the noisy test set 10 times, and plotted our test accuracies using a box plot. To summarize our findings, the median accuracy of our ten runs was 0.67, the minimum accuracy was 0.65, the maximum was 0.680, and that we have no outliers.
@@ -116,6 +134,8 @@ We also performed a Statistical Significance Study on the noise experiment for a
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-statistical-sig.png" width="520" height="450">
 </div>
+
+[Code for Noise Experiment - Statistical Significance Study](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/noise_experiment/noise_experiment.ipynb)
 
 ### Adversarial Attack 
 **Motivation** Adversarial machine learning, a technique that attempts to fool models with deceptive data, is a growing threat in the AI and machine learning research community. Therefore, to test our model's robustness, we used Fast Gradient Signed Method (FGSM). FGSM is a white-box attack as it leverages an internal component of the architecture which is its gradients. 
@@ -207,6 +227,7 @@ Guided Backpropagation combines the previously used Vanilla Backpropagation tech
 
 Based on the above results we can see that our fine-tuned classifier tends to focus on specific regions of the human face to help correctly classify the human emotion. Our model mainly focuses on the center region of the face (the eyes, eyebrows, and mouth area), since the pixels seem to be the most highlighted in those parts in the Guided Backpropagation Saliency map. In addition to this, upon analyzing the Colored Guided Backpropagation map, the main features that the model is focusing on is further well defined and outlined.  
 
+[Code for Guided Backpropagation Saliency Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/saliency_experiment/guided_bp_saliency.ipynb)
 
 
 
