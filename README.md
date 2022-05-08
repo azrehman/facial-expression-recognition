@@ -5,7 +5,19 @@
 To accomplish our goal of facial expression recognition (FER), we apply ResNet-50, a pretrained deep-CNN, on two different datasets. In addition to classifying facial expressions, we explore many different aspects of computer vision by experimenting with our final trained classifier. We also intend to create different visualizations for our model to increase insight and understanding. This git repository has the code to the various investigative experiments that we conducted, as well as our final trained classifier.
 
 ## How to Run Our Code
-Abdullah
+
+1. Install [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) (python enviroment manager)
+2. Clone this repository\
+`git clone https://git.cs.vt.edu/sdeepti/facial-expression-recognition.git`
+3. Create a conda enviroment\
+`conda create --clone base --name face_env`
+4. Activate enviroment\
+`conda activate face_env`
+4. Install [pytorch](https://pytorch.org/get-started/locally/)\
+`conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch`
+4. Run our code :)\
+`python main_resnet50/train_classifier.py`\
+(note you may need to modify image_dir path to `../data/<dataset name>`)
 
 ## Transfer Learning
 Transfer learning is a machine learning technique in which a pre-trained model is being repurposed for a similar task of interest. Applying transfer learning to our project was seen to be advantageous as it would reduce the complexity of our task and thereby increase efficiency. 
