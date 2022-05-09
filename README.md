@@ -90,6 +90,8 @@ In contrast, we achieved **95.7%** accuracy with our model. The slight decrease 
 2. Train each model under same settings until loss stops decreasing (~100 epochs)
 3. Evaluate trained models on test set and compare accuracies
 
+**Conclusion**
+
 | Model | ResNet50 (48 Layers) |   CNN (6 Layers)   |   CNN (2 Layers)   |   CNN (1 Layer)|
 | ------ | ------ | ------ | ------ | ------ | 
 | *No. of Trainable Parameters* | 161 | 16 | 8 | 6 |
@@ -102,6 +104,7 @@ In contrast, we achieved **95.7%** accuracy with our model. The slight decrease 
 <figcaption align = "center"><b>Fig X. Number of CNN layers vs Accuracy</b></figcaption>
 </figure>
 
+According to our findings, the accuracy of all three models was significantly lower than that of our main ResNet50 classifier. We can see that raising the number of layers increases the amount of trainable parameters, which causes the accuracy rate to improve. This is expected because the CNN models took longer to converge because they were trained from scratch.
 
 ### Experimenting Different Dataset Sizes
 **Motivation** Perform a sensitivity analysis to quantify the relationship between dataset size and model performance. We want to take fractions of the orginial dataset and observe how the model's ability to classify accurately changes. 
