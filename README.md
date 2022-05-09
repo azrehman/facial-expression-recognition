@@ -51,9 +51,12 @@ The preprocessing steps we implemented were to add rotation, horizontal flips, b
 ResNet is the abbreviated name for a Residual Network. This deep CNN architecture can contain a numerous number of convolution layers ranging from 18 to 152. When performing our literature review, we saw that ResNet50 was quite popular and had higher accuracy rates compared to other models like VGG-16 and Inception-v3 etc. ResNet 50 specifically has 48 convolution layers, 1 max pool layer and 1 average pool layer. 
 Another reason we chose ResNet was because we learned that the ResNet architecture overcame the “vanishing gradient” problem. A vanishing gradient occurs during backpropagation. When the training algorithm tries to find weights that bring the loss function to a minimal value, if there are too many layers, the gradient becomes very small until it disappears, and optimization cannot continue. Since, ResNet was capable of overcoming this challenge, it can be built with multiple layers and therefore outperform shallower networks.
 
+<figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/resnet_arch.png" width="820" height="200">
 </div>
+<figcaption align = "center"><b>Fig 2. ResNet50 Architecture</b></figcaption>
+</figure>
 
 ## Baseline Model vs Our Classifier
 Abdullah
@@ -88,7 +91,13 @@ Abdullah
 | *No. of Images* | 3920 | 3430 | 2450 | 980 | 490 |
 | *Accuracy* | 0.96 | 0.94 | 0.94 | 0.89 | 0.83 |
 
+<b> Table X - </b>
+<figure>
+<div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/dataset_size_graph.png" width="550" height="400">
+</div>
+<figcaption align = "center"><b>Fig 2. ResNet50 Architecture</b></figcaption>
+</figure>
 
 The results that we found were quite impressive given that the amount of data the model was trained with was significantly less. The graph above shows the downward trend in accuracy the dataset size used for training decreases. There is roughly a 10% decrease in accuracy from using 80% of the dataset to only 10%. We attribute this decent accuracy to the fact that we used transfer learning instead of training the model from scratch. Additionally, since data augmentations were applied, it artificially increased the number of training samples which could have contributed to the higher accuracy rates. 
 
