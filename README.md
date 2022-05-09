@@ -151,11 +151,20 @@ We want to show that a simple ML model will not be as accurate for our task. An 
 7. Record evaluation metrics (accuracy, F1 Score, confusion matrix).
 
 _Hyperparameter Space:_
+```python
+# parameters for gridsearchCV
+parameter_space = [
+    {
+        'C': [1, 10, 100],
+        'kernel': ['rbf', 'poly'],
+        'gamma': ['scale', 'auto']
+    },
+    {
+        'C': [1, 10, 100],
+        'kernel': ['linear']
+    }
+]
 
-<figure>
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/svm-hyperparameter-space.png">
-<figcaption align = "left"><b>Fig X. The hyperparameter space to perform gridsearch on.</b></figcaption>
-</figure>
 
 **Conclusion**
 Our **SVM model obtained an accuracy of 72%**, whereas our **fine-tuned CNN model obtained an accuracy of 95%**. Thus, our SVM model obtained lower accuracy when compared to our CNN model. This can be attributed to the idea that deep learning models perform better for classification problems. However, if we discount the time it took to do gridsearch, the SVM classifier was faster to train. 
