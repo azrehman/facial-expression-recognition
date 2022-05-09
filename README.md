@@ -106,6 +106,8 @@ In contrast, we achieved **95.7%** accuracy with our model. The slight decrease 
 
 According to our findings, the accuracy of all three models was significantly lower than that of our main ResNet50 classifier. We can see that raising the number of layers increases the amount of trainable parameters, which causes the accuracy rate to improve. This is expected because the CNN models took longer to converge because they were trained from scratch.
 
+[Code for SVM Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/model_size_experiment/Model_Size_Notebook.ipynb)
+
 ### Experimenting Different Dataset Sizes
 **Motivation** Perform a sensitivity analysis to quantify the relationship between dataset size and model performance. We want to take fractions of the orginial dataset and observe how the model's ability to classify accurately changes. 
 
@@ -314,7 +316,10 @@ t-SNE works by first creating a probability distribution of datapoint distances 
 <b>Table X. This table depicts the resulting t-SNE visualization in 2D and 3D space viewing with 20 perplexity value and 100 perplexity value.</b>
 
 
-**Results**  Our t-SNE performed extremely well. We find that as the perplexity increases the clusters become tighter and more defined. We discovered seven distinct clusters for each emotion as we investigated seven different emotions for our FER exploration. This visualization also does a great job supporting the accuracy we achieved from our ResNet50 model.
+**Results**  Our t-SNE performed extremely well. We find that as the perplexity increases the clusters become tighter and more defined. We discovered seven distinct clusters for each emotion as we investigated seven different emotions for our FER exploration. This visualization also does a great job supporting the accuracy we 
+achieved from our ResNet50 model.
+
+[Code for Dataset Size Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/tsne_visualization/tsne_visualization.ipynb)
 
 ### Saliency Maps 
 
