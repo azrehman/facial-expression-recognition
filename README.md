@@ -386,9 +386,9 @@ The model we chose for image-to-image translation was [CUT-GAN](https://github.c
 
 For our experiment, we used all straight facing angles of angry images and applied CUT-GAN to translate them into happy images. Since we only used straight images, we did not have many images for CUT-GAN to learn the mapping. Below example results are shown for real angry images translated into fake happy images by CUT-GAN. From the results, we can empirically see that the generated images had a large amount of artifacts, and did not transform facial features well into the target expression. This is likely due to the fact of how complicated facial images are, as well as not using many images.
 
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/bonus_img1.png" width="600" height="350">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/bonus_img2.png" width="600" height="350">
-
+#### Angry to Happy Image-to-Image Transfer Results
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/bonus_img1.png" width="400" height="250">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/bonus_img2.png" width="400" height="250">
 
 
 
