@@ -294,9 +294,9 @@ these types of attacks since the attacker has access to the model parameters.
 
 <figure>
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/t-SNE_Formula.png" width="900" height="300">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/t-SNE_Formula.png" width="900" height="300">
 </div>
-<figcaption align="center"><b>Fig X. Model confidence for image for high level of perturbation (epsilon = 0.3) </b></figcaption>
+<figcaption align="center"><b>Fig X. t-SNE embeddings function </b></figcaption>
 </figure>
 
 t-SNE works by first creating a probability distribution of datapoint distances in higher dimensional space and then creating a similar probability distribution for datapoint distances in the lower dimensional map. Then uses a divergence algorithm such as KL-divergence between the two different probability distributions.The t-SNE algorithm main hyperparameter is the perplexity parameter. The perplexity changes the amount of attention between local and global aspects of the data. Changes in the perplexity usually changes the performance of t-SNE, and typical values are between 5 and 50. So it’s important to experiment with different perplexity values to see different results.
