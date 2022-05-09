@@ -96,8 +96,8 @@ In contrast, we achieved **95.7%** accuracy with our model. The slight decrease 
 | ------ | ------ | ------ | ------ | ------ | 
 | *No. of Trainable Parameters* | 161 | 16 | 8 | 6 |
 | *Accuracy* | 0.96 | 0.80 | 0.82 | 0.77 | 
-<b>Table X. Model accuracy different Architecture sizes </b>
 
+<b>Table X. Model accuracy on varying Architecture sizes </b>
 
 <figure>
 <div align="center">
