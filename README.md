@@ -40,9 +40,13 @@ Post training, we then feed our image into the model and the output of the final
 ## Preprocessing Steps
 The preprocessing steps we implemented were to add rotation, horizontal flips, brightness, contrast and saturation modifications to expand the scope of the images we have in our dataset with the goal of improving our model’s performance. We then applied data normalization according to the ImageNet dataset standards and image resizing for faster training. Although grayscaling was a plausible preprocessing step that could be used to reduce noise, we did no proceed with this step as the pre-trained model we chose was trained on color images.
 
+<figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/preprocessing.png" width="820" height="200">
 </div>
+<figcaption align = "center"><b>Fig 2. Preprocessing Steps</b></figcaption>
+</figure>
+
 
 [Link to Preprocessing Code.](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/main_resnet50/preprocessing_visualization.ipynb)
 
@@ -55,7 +59,7 @@ Another reason we chose ResNet was because we learned that the ResNet architectu
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/resnet_arch.png" width="820" height="200">
 </div>
-<figcaption align = "center"><b>Fig 2. ResNet50 Architecture</b></figcaption>
+<figcaption align = "center"><b>Fig 3. ResNet50 Architecture</b></figcaption>
 </figure>
 
 ## Baseline Model vs Our Classifier
@@ -91,7 +95,7 @@ Abdullah
 | *No. of Images* | 3920 | 3430 | 2450 | 980 | 490 |
 | *Accuracy* | 0.96 | 0.94 | 0.94 | 0.89 | 0.83 |
 
-<b> Table X - </b>
+<b> Table X.  </b>
 <figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/dataset_size_graph.png" width="550" height="400">
@@ -129,7 +133,7 @@ Our **SVM model obtained an accuracy of 72%**, whereas our **fine-tuned CNN mode
 <figure>
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/SVM_Experiment_-_Image_2_-_CS_4664.png">
 <figcaption align = "center"><b>Fig X. A graph displaying the trend of model accuracy
-across different models (Deep CNN, Tuned SVM, Untuned SVM</b></figcaption>
+across different models (Deep CNN, Tuned SVM, Untuned SVM)</b></figcaption>
 </figure>
 
 Upon performing gridsearch with cross validation, we obtained the following best hyperparameters, C=100, Gamma=auto, Kernel=rbf. Now, if we take a look at this bar graph, you can see that prior to tunning our SVM model we were obtaining quite low accuracy, and performing gridsearch with tuning made the SVM Model perform better. However, our fine tuned classifier obtained much better accuracy compared to the other models. 
@@ -147,7 +151,7 @@ This was achieved by applying Gaussian Noise with different levels of�
 | ------ | ------ |
 | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-1.png"  width="300" height="320"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-experiment-2.png"  width="300" height="320"> |
 
-
+<b>Table X. Model accuracies against test set with varying values of variance</b>
 
 **Steps of Noise Experiment**
 1. Apply Gaussian noise to test images.
@@ -157,7 +161,12 @@ This was achieved by applying Gaussian Noise with different levels of�
 5. Compare accuracies to model performance on test set without noise.
 
 **Conclusion** 
+
+<figure>
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise_conclusion.png">
+<figcaption align = "center"><b>Fig X. A graph displaying the trend of model accuracy
+for varying levels of noise added to the test set</b></figcaption>
+</figure>
 
 Unfortunately **our model was not as resilient to noise** as much as we hoped. You can see that our model's accuracy decreases when we increase the amount of noise applied. This implies that our model would not perform very well on real world data except in the most ideal circumstances. In order to address this, there are multiple techniques we could apply. An obvious option is to retrain our model with a small random amount of noise added to our training images as a data augmentation. By training with noisy images, our model should be more agnostic to confounding details and perform better on real world images. Another option is to limit overfitting in our model using techniques such as _dropout, early stopping, and loss regularization_.
 
@@ -166,24 +175,36 @@ Unfortunately **our model was not as resilient to noise** as much as we hoped. Y
 ### Noise Experiment - Statistical Significance Study
 We also performed a Statistical Significance Study on the noise experiment for a variance level of 0.1. We simply applied noise to our test set, and evaluated our model on the noisy test set 10 times, and plotted our test accuracies using a box plot. To summarize our findings, the median accuracy of our ten runs was 0.67, the minimum accuracy was 0.65, the maximum was 0.680, and that we have no outliers.
 
+<figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/noise-statistical-sig.png" width="420" height="350">
 </div>
+<figcaption align = "center"><b>Fig X. Boxplot depicting a statistical significance study
+displaying the distribution of model accuracies for variance
+level of 0.1 added to test set.</b></figcaption>
+</figure>
 
 [Code for Noise Experiment - Statistical Significance Study](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/noise_experiment/noise_experiment.ipynb)
 
 ### Adversarial Attack 
 **Motivation** Adversarial machine learning, a technique that attempts to fool models with deceptive data, is a growing threat in the AI and machine learning research community. Therefore, to test our model's robustness, we used Fast Gradient Signed Method (FGSM). FGSM is a white-box attack as it leverages an internal component of the architecture which is its gradients. 
+
+<figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/adversarial_formula.png" width="1000" height="100">
 </div>
+<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+</figure>
 The implementation follows the formula as seen above, where it takes the original image and then adjusts each pixel of the input image based on the gradient and a factor which is the pixel-wise perturbation amount known as epsilon. As per theory, as the epsilon value increases, the image becomes more perturbed causing the model to become more inaccurate
 
 We used increased epsilon values to create more perturbed images and tested our model on these adversarial images to observe how well it could classify the images.
 
+<figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/faces_epsilon_values.png" width="520" height="430">
 </div>
+<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+</figure>
 
 **Steps of Adversarial Attack**
 1. Load the trained model.
@@ -199,23 +220,37 @@ We used increased epsilon values to create more perturbed images and tested our 
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | **Test Accuracy** | 0.96 | 0.82 | 0.61 | 0.50 | 0.38 | 0.057 | 0.053 | 0.047|
 
+<b>Table X. </b>
 
+<figure>
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_graph.png" width="500" height="400">
+<figcaption><b>Fig X. AJDKSANF </b></figcaption>
+</figure>
 
 The results show that even a small epsilon value can have quite a drastic impact on the performance of the model. An epsilon value of 0 gives us our original accuracy of 96% but an epsilon of 0.1 drops the accuracy significantly to 4.7%.
 
+<figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.png" width="900" height="250">
 </div>
+<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+</figure>
+
+<figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.01.png" width="900" height="250">
 </div>
+<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+</figure>
 
 The figure above shows that with an epsilon of 0 the model is very confident and there are no incorrect predictions but an epsilon of 0.01 the model is very confident but on the wrong expression label since it believes that a happy image is actually afraid. Although, the epsilon value is very small and the perturbed image looks untampered, the accuracy is much lower.
 
+<figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.3.png" width="900" height="300">
 </div>
+<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+</figure>
 
 Moreover, When the epsilon value is too high, such as 0.3, it acts similarly to adding noise to the image.  This is because the model still misclassifies the image but it is no longer confident in one label and is more confused which causes it to have some confidence in numerous labels.
 
@@ -254,9 +289,12 @@ The Vanilla Backpropagation technique creates a saliency map by forward passing 
 4. Retireve the saliency map and also pick the maximum value from channels on each pixel.
 5. Plot saliency map
 
+<figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/vanilla_saliency_map.png" width="600" height="350">
 </div>
+<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+</figure>
 
 ** Result **
 The saliency map resulting from using the Vanilla Backpropagation approach shows a very noisy image since background features pass through the ReLu activation functions which causes it to be unclear. However, we can see that the brighter red spots are focused around the eyes and mouth area which provide us with an indication of what the model focuses on when trying to classify the image.
@@ -278,6 +316,8 @@ Guided Backpropagation combines the previously used Vanilla Backpropagation tech
 |Guided Backpropagation Saliency|Colored Guided Backpropagation|Guided Backpropagation Negative Saliency|Guided Backpropagation Positive Saliency|
 | ------ | ------ | ------ | ------ |
 | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/AF01HAHR_Guided_BP_gray.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/AF01HAHR_Guided_BP_color.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/AF01HAHR_neg_sal.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/AF01HAHR_pos_sal.png"> |
+
+<b>Table X. This table depicts the resulting saliency maps using Guided Backprogation. We were able to plot 4 kinds of saliency maps.</b>
 
 Based on the above results we can see that our fine-tuned classifier tends to focus on specific regions of the human face to help correctly classify the human emotion. Our model mainly focuses on the center region of the face (the eyes, eyebrows, and mouth area), since the pixels seem to be the most highlighted in those parts in the Guided Backpropagation Saliency map. In addition to this, upon analyzing the Colored Guided Backpropagation map, the main features that the model is focusing on is further well defined and outlined.  
 
