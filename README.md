@@ -282,6 +282,11 @@ t-SNE works by first creating a probability distribution of datapoint distances 
 4. Use features to compute t-SNE embeddings to reduce dimensionality to 2D or 3D
 5. Repeat with different perplexity values
 
+
+|2D - 20 perplexity value|2D - 100 perplexity value|3D - 20 perplexity value|3D - 100 perplexity value|
+| ------ | ------ | ------ | ------ |
+| <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/2-d-1.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/2-d-2.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/3-d-1.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/3-d-2.png"> |
+
 Results  Our t-SNE performed extremely well. We find that as the perplexity increases the clusters become tighter and more defined. We discovered seven distinct clusters for each emotion as we investigated seven different emotions for our FER exploration. This visualization also does a great job supporting the accuracy we achieved from our ResNet50 model.
 
 ### Saliency Maps 
