@@ -134,8 +134,8 @@ _Hyperparameter Space:_
 **Conclusion**
 Our **SVM model obtained an accuracy of 72%**, whereas our **fine-tuned CNN model obtained an accuracy of 95%**. Thus, our SVM model obtained lower accuracy when compared to our CNN model. This can be attributed to the idea that deep learning models perform better for classification problems. However, if we discount the time it took to do gridsearch, the SVM classifier was faster to train. 
 
-<figure>
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/SVM_Experiment_-_Image_2_-_CS_4664.png">
+<figure align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/SVM_Experiment_-_Image_2_-_CS_4664.png" width="500" height="300">
 <figcaption align = "center"><b>Fig X. A graph displaying the trend of model accuracy
 across different models (Deep CNN, Tuned SVM, Untuned SVM)</b></figcaption>
 </figure>
