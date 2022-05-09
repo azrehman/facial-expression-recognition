@@ -294,7 +294,7 @@ these types of attacks since the attacker has access to the model parameters.
 
 <figure>
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/t-SNE_Formula.png" width="150" height="75">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/t-sne-FORM-Latest.png" width="150" height="75">
 </div>
 <figcaption align="center"><b>Fig X. t-SNE embeddings function </b></figcaption>
 </figure>
