@@ -184,8 +184,28 @@ Upon performing gridsearch with cross validation, we obtained the following best
 
 
 ### Exploring Bias in Our Model
+
+**Motivation:** A prominent issue in the facial recognition domain is that most datasets severely lack diversity. This is especially true regarding race. The lack of diversity means that machine learning models trained on these datasets are significantly biased.
+With the many applications of facial recognition models, including law enforcement and healthcare, bias is a serious, yet often overlooked issue.\
+Our main classifier was trained on the KDEF dataset, which while balanced in gender, only includes faces of the white race [21]. So like most face image datasets, KDEF is obviously biased. To investigate the problems of training with such biased data, we use a second dataset which is racially diverse. This dataset, Radiate, is very similar to our original dataset except that it contains racially diverse faces (Asian, Hispanic, Black).
+
+**Steps of Bias Experiment**
+1. Load model trained on KDEF (not biased) images
+2. Create test set of Radiate (diverse) images
+3. Apply rescaling and normaliztion to Radiate test images 
+4. Evaluate the trained model performance on Radiate test set.
+5. Compare accuracies to see impact of training with biased data.
+
+**Bias Experiment Conclusion**
+
+Our model achieves an accuracy of **89%** when trained with ~980 KDEF images and evaluated on KDEF test images. The accuracy of the same model however drastically drops to **28%** when evaluated on the diverse Radiate test images.\
+Since the KDEF and Radiate datasets are so similar, including having the same angles, lighting, and framing, confounding due to other variables besides ethnicity is limited. Thus, we can say that our original model is very biased. To address this, training with both datasets combined can be done to make our model more race agnostic. 
+
+[Code for Bias Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/bias_experiment/radiate_classifier.ipynb)
+
+
 ### Introducing Noise
-**Motivation** Noisy images are actually more representative of real world data, which are normally not uniform and often contain many confounding details. Thus, our goal for this experiment was to evaluate our model’s performance on test images containing varying levels of noise.
+**Motivation:** Noisy images are actually more representative of real world data, which are normally not uniform and often contain many confounding details. Thus, our goal for this experiment was to evaluate our model’s performance on test images containing varying levels of noise.
 
 This was achieved by applying Gaussian Noise with different levels of variance on our test set. We predict that if our model is robust,then performance should not decrease, unless a really large amount of noise is applied to our test set.
 
