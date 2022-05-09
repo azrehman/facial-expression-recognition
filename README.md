@@ -384,7 +384,7 @@ For our bonus task, we wanted to explore beyond the scope of image classificatio
 
 The model we chose for image-to-image translation was [CUT-GAN](https://github.com/taesungp/contrastive-unpaired-translation) (Contrastive Unpaired Translation GAN). We chose this model because CUT-GAN is less computationally expensive than other methods such as Cycle-GAN. Furthermore, CUT-GAN is supposed to perform better with less images due to using patchwise contrastive learning. 
 
-*Steps:*
+**Steps:**
 
 1. Take all 140 front-facing angry images and split into trainA, testA folders (90/10 split = 126 train / 14 test images)
 2. Similarly split front-facing happy images to trainB, testB folders
