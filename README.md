@@ -296,13 +296,6 @@ these types of attacks since the attacker has access to the model parameters.
 tSNE_embeddings = TSNE(n_components=2, perplexity=40, n_iter=1000).fit_transform(outputs)
 ```
 
-<figure>
-<div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/t-sne-FORM-Latest.png" width="1000" height="100">
-</div>
-<figcaption align="center"><b>Fig X. t-SNE embeddings function </b></figcaption>
-</figure>
-
 t-SNE works by first creating a probability distribution of datapoint distances in higher dimensional space and then creating a similar probability distribution for datapoint distances in the lower dimensional map. Then uses a divergence algorithm such as KL-divergence between the two different probability distributions.The t-SNE algorithm main hyperparameter is the perplexity parameter. The perplexity changes the amount of attention between local and global aspects of the data. Changes in the perplexity usually changes the performance of t-SNE, and typical values are between 5 and 50. So it’s important to experiment with different perplexity values to see different results.
 
 **Steps For t-SNE Visualization**
