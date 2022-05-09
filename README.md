@@ -96,7 +96,7 @@ Abdullah
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/dataset_size_graph.png" width="550" height="400">
 </div>
-<figcaption align = "center"><b>Fig 2. ResNet50 Architecture</b></figcaption>
+<figcaption align = "center"><b>Fig 3. ResNet50 Architecture</b></figcaption>
 </figure>
 
 The results that we found were quite impressive given that the amount of data the model was trained with was significantly less. The graph above shows the downward trend in accuracy the dataset size used for training decreases. There is roughly a 10% decrease in accuracy from using 80% of the dataset to only 10%. We attribute this decent accuracy to the fact that we used transfer learning instead of training the model from scratch. Additionally, since data augmentations were applied, it artificially increased the number of training samples which could have contributed to the higher accuracy rates. 
@@ -118,12 +118,19 @@ We want to show that a simple ML model will not be as accurate for our task. An 
 
 _Hyperparameter Space:_
 
-![](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/svm-hyperparameter-space.png)
+<figure>
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/svm-hyperparameter-space.png">
+<figcaption align = "left"><b>Fig X. The hyperparameter space to perform gridsearch on.</b></figcaption>
+</figure>
 
 **Conclusion**
 Our **SVM model obtained an accuracy of 72%**, whereas our **fine-tuned CNN model obtained an accuracy of 95%**. Thus, our SVM model obtained lower accuracy when compared to our CNN model. This can be attributed to the idea that deep learning models perform better for classification problems. However, if we discount the time it took to do gridsearch, the SVM classifier was faster to train. 
 
-![](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/SVM_Experiment_-_Image_2_-_CS_4664.png)
+<figure>
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/SVM_Experiment_-_Image_2_-_CS_4664.png">
+<figcaption align = "center"><b>Fig X. A graph displaying the trend of model accuracy
+across different models (Deep CNN, Tuned SVM, Untuned SVM</b></figcaption>
+</figure>
 
 Upon performing gridsearch with cross validation, we obtained the following best hyperparameters, C=100, Gamma=auto, Kernel=rbf. Now, if we take a look at this bar graph, you can see that prior to tunning our SVM model we were obtaining quite low accuracy, and performing gridsearch with tuning made the SVM Model perform better. However, our fine tuned classifier obtained much better accuracy compared to the other models. 
  
