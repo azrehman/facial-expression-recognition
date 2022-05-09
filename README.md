@@ -75,12 +75,12 @@ In contrast, we achieved **95.7%** accuracy with our model. The slight decrease 
 - [Experimenting Different Model Sizes](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/#experimenting-different-model-sizes)
 - [Experimenting Different Dataset Sizes](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#experimenting-different-dataset-sizes)
 - [Support Vector Machine Classifier Comparison](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#support-vector-machine-classifier-vs-final-trained-classifier)
-- Exploring Bias in Our Model (todo link)
+- [Exploring Bias in Our Model](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/README.md#t-sne-feature-visualizations)
 - [Introducing Noise](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#introducing-noise)
 - [Adversarial Attack](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#adversarial-attack) 
-- t-SNE Feature Visualizations (todo link)
+- [t-SNE Feature Visualizations](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/README.md#t-sne-feature-visualizations)
 - [Saliency Map Visualization using Guided Back Propagation](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#saliency-maps)
-- Bonus: Image to Image Emotion Transfer (todo link)
+- [Bonus: Image to Image Emotion Transfer](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/README.md#t-sne-feature-visualizations)
 
 ### Experimenting Different Model Sizes
 **Motivation** Investigate shallower model architecture sizes trained from scratch performance compared to ResNet-50 transfer learning model.
