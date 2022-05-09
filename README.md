@@ -189,6 +189,11 @@ Upon performing gridsearch with cross validation, we obtained the following best
 With the many applications of facial recognition models, including law enforcement and healthcare, bias is a serious, yet often overlooked issue.\
 Our main classifier was trained on the KDEF dataset, which while balanced in gender, only includes faces of the white race. So like most face image datasets, KDEF is obviously biased. To investigate the problems of training with such biased data, we use a second dataset which is racially diverse. This dataset, Radiate, is very similar to our original dataset except that it contains racially diverse faces (Asian, Hispanic, Black).
 
+<figure align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/radiate.png" width="500" height="300">
+<figcaption align = "center"><b>Fig X. Sample images in the Radiate dataset</b></figcaption>
+</figure>
+
 **Steps of Bias Experiment**
 1. Load model trained on KDEF (not biased) images
 2. Create test set of Radiate (diverse) images
