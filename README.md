@@ -83,6 +83,26 @@ In contrast, we achieved **95.7%** accuracy with our model. The slight decrease 
 - Bonus: Image to Image Emotion Transfer (todo link)
 
 ### Experimenting Different Model Sizes
+**Motivation** Investigate shallower model architecture sizes trained from scratch performance compared to ResNet-50 transfer learning model.
+
+**Steps of Model Size Experiment**
+1. Build three smaller CNN models with different number of convolutional layers
+2. Train each model under same settings until loss stops decreasing (~100 epochs)
+3. Evaluate trained models on test set and compare accuracies
+
+| Model | ResNet50 (48 Layers) |   CNN (6 Layers)   |   CNN (2 Layers)   |   CNN (1 Layer)|
+| ------ | ------ | ------ | ------ | ------ | 
+| *No. of Trainable Parameters* | 161 | 16 | 8 | 6 |
+| *Accuracy* | 0.96 | 0.80 | 0.82 | 0.77 | 
+
+<figure>
+<div align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/numLayersVsAcc.png" width="550" height="400">
+</div>
+<figcaption align = "center"><b>Fig X. Number of CNN layers vs Accuracy</b></figcaption>
+</figure>
+
+
 ### Experimenting Different Dataset Sizes
 **Motivation** Perform a sensitivity analysis to quantify the relationship between dataset size and model performance. We want to take fractions of the orginial dataset and observe how the model's ability to classify accurately changes. 
 
@@ -91,6 +111,7 @@ In contrast, we achieved **95.7%** accuracy with our model. The slight decrease 
 2. Retrain main classifier under same settings for each dataset subset.
 3. Record the test accuracy on the subset of the orginial dataset.
 4. Repeat steps 1-3 for different dataset sizes.
+
 
 **Conclusion**
 
@@ -287,7 +308,10 @@ t-SNE works by first creating a probability distribution of datapoint distances 
 | ------ | ------ | ------ | ------ |
 | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/2-d-1.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/2-d-2.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/3-d-1.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/3-d-2.png"> |
 
-Results  Our t-SNE performed extremely well. We find that as the perplexity increases the clusters become tighter and more defined. We discovered seven distinct clusters for each emotion as we investigated seven different emotions for our FER exploration. This visualization also does a great job supporting the accuracy we achieved from our ResNet50 model.
+<b>Table X. This table depicts the resulting t-SNE visualization in 2D and 3D space viewing with 20 perplexity value and 100 perplexity value.</b>
+
+
+**Results**  Our t-SNE performed extremely well. We find that as the perplexity increases the clusters become tighter and more defined. We discovered seven distinct clusters for each emotion as we investigated seven different emotions for our FER exploration. This visualization also does a great job supporting the accuracy we achieved from our ResNet50 model.
 
 ### Saliency Maps 
 
@@ -308,10 +332,10 @@ The Vanilla Backpropagation technique creates a saliency map by forward passing 
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/vanilla_saliency_map.png" width="600" height="350">
 </div>
-<figcaption align="center"><b>Fig X. Saliency Map Using Vanilla Backpropagation Approach </b></figcaption>
+<figcaption align="center"><b>Fig X. Saliency map using Vanilla Backpropagation Approach </b></figcaption>
 </figure>
 
-**Result**
+** Result **
 The saliency map resulting from using the Vanilla Backpropagation approach shows a very noisy image since background features pass through the ReLu activation functions which causes it to be unclear. However, we can see that the brighter red spots are focused around the eyes and mouth area which provide us with an indication of what the model focuses on when trying to classify the image.
 
 [Code for Vanilla Backpropagation Saliency Experiment](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/saliency_experiment/vanilla_bp_saliency.ipynb)
