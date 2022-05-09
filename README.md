@@ -80,7 +80,7 @@ In contrast, we achieved **95.7%** accuracy with our model. The slight decrease 
 - [Adversarial Attack](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#adversarial-attack) 
 - [t-SNE Feature Visualizations](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/README.md#t-sne-feature-visualizations)
 - [Saliency Map Visualization using Guided Back Propagation](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#saliency-maps)
-- [Bonus: Image to Image Emotion Transfer](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/README.md#t-sne-feature-visualizations)
+- [Bonus: Image to Image Emotion Transfer](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/README.md#bonus-image-to-image-emotion-transfer)
 
 ### Experimenting Different Model Sizes
 **Motivation** Investigate shallower model architecture sizes trained from scratch performance compared to ResNet-50 transfer learning model.
