@@ -311,7 +311,7 @@ The Vanilla Backpropagation technique creates a saliency map by forward passing 
 <figcaption align="center"><b>Fig X. Saliency Map Using Vanilla Backpropagation Approach </b></figcaption>
 </figure>
 
-** Result **
+**Result**
 The saliency map resulting from using the Vanilla Backpropagation approach shows a very noisy image since background features pass through the ReLu activation functions which causes it to be unclear. However, we can see that the brighter red spots are focused around the eyes and mouth area which provide us with an indication of what the model focuses on when trying to classify the image.
 
 [Code for Vanilla Backpropagation Saliency Experiment](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/saliency_experiment/vanilla_bp_saliency.ipynb)
