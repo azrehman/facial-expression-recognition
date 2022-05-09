@@ -51,7 +51,7 @@ Abdullah
 Abdullah
 
 ## Investigative Experiments
-- Experimenting Different Model Sizes (todo link)
+- [Experimenting Different Model Sizes](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/#experimenting-different-model-sizes)
 - [Experimenting Different Dataset Sizes](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#experimenting-different-dataset-sizes)
 - [Support Vector Machine Classifier Comparison](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/tree/main#support-vector-machine-classifier-vs-final-trained-classifier)
 - Exploring Bias in Our Model (todo link)
