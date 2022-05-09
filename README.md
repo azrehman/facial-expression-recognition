@@ -308,7 +308,7 @@ The Vanilla Backpropagation technique creates a saliency map by forward passing 
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/vanilla_saliency_map.png" width="600" height="350">
 </div>
-<figcaption align="center"><b>Fig X. Saliency map using Vanilla Backpropagation Approach </b></figcaption>
+<figcaption align="center"><b>Fig X. Saliency Map Using Vanilla Backpropagation Approach </b></figcaption>
 </figure>
 
 ** Result **
