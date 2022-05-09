@@ -384,6 +384,11 @@ For our bonus task, we wanted to explore beyond the scope of image classificatio
 
 The model we chose for image-to-image translation was [CUT-GAN](https://github.com/taesungp/contrastive-unpaired-translation) (Contrastive Unpaired Translation GAN). We chose this model because CUT-GAN is less computationally expensive than other methods such as Cycle-GAN. Furthermore, CUT-GAN is supposed to perform better with less images due to using patchwise contrastive learning. 
 
+*Steps:*
+
+1. Take all 140 front-facing angry images and split into trainA, testA folders (90/10 split = 126 train / 14 test images)
+2. Similarly split front-facing happy images to trainB, testB folders
+3. Run CUT-GAN ([link to experiment settings](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/image_translation_bonus/train_opt.txt))
 
 For our experiment, we used all straight facing angles of angry images and applied CUT-GAN to translate them into happy images. Since we only used straight images, we did not have many images for CUT-GAN to learn the mapping. Below example results are shown for real angry images translated into fake happy images by CUT-GAN. From the results, we can empirically see that the generated images had a large amount of artifacts, and did not transform facial features well into the target expression. This is likely due to the fact of how complicated facial images are, as well as not using many images.
 
