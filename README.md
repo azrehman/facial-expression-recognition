@@ -45,10 +45,15 @@ The preprocessing steps we implemented were to add rotation, horizontal flips, b
 [Link to Preprocessing Code.](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/main_resnet50/preprocessing_visualization.ipynb)
 
 ## Our Chosen Classifier Architecture 
-Abdullah
+
+ResNet is the abbreviated name for a Residual Network. This deep CNN architecture can contain a numerous number of convolution layers ranging from 18 to 152. When performing our literature review, we saw that ResNet50 was quite popular and had higher accuracy rates compared to other models like VGG-16 and Inception-v3 etc. ResNet 50 specifically has 48 convolution layers, 1 max pool layer and 1 average pool layer. 
+Another reason we chose ResNet was because we learned that the ResNet architecture overcame the “vanishing gradient” problem. A vanishing gradient occurs during backpropagation. When the training algorithm tries to find weights that bring the loss function to a minimal value, if there are too many layers, the gradient becomes very small until it disappears, and optimization cannot continue. Since, ResNet was capable of overcoming this challenge, it can be built with multiple layers and therefore outperform shallower networks.
+
 
 ## Baseline Model vs Our Classifier
 Abdullah
+
+[Code for Main Classifier](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/main_resnet50/main_resnet50.ipynb)
 
 ## Investigative Experiments
 - [Experimenting Different Model Sizes](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/#experimenting-different-model-sizes)
@@ -81,6 +86,8 @@ Abdullah
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/dataset_size_graph.png" width="550" height="400">
 
 The results that we found were quite impressive given that the amount of data the model was trained with was significantly less. The graph above shows the downward trend in accuracy the dataset size used for training decreases. There is roughly a 10% decrease in accuracy from using 80% of the dataset to only 10%. We attribute this decent accuracy to the fact that we used transfer learning instead of training the model from scratch. Additionally, since data augmentations were applied, it artificially increased the number of training samples which could have contributed to the higher accuracy rates. 
+
+[Code for Dataset Size Experiment](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/dataset_size_experiment/dataset_size.ipynb)
 
 ### Support Vector Machine Classifier vs Final Trained Classifier
 **Motivation** Investigate how a simple SVM model (our non-deep-learning baseline) performs compared to our fine tuned CNN classifier.
@@ -194,6 +201,8 @@ Moreover, When the epsilon value is too high, such as 0.3, it acts similarly to 
 Overall, there is an inverse relationship where as the epsilon value increases, the test accuracy of our model decreases. This investigation proves to show that our model might not be the most robust against such white box attacks but it is particularly hard to make a model defend itself against
 these types of attacks since the attacker has access to the model parameters. 
 
+[Code for Adversarial Attack](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/adversarial_experiment/adversarial_attack.ipynb)
+
 ### t-SNE Feature Visualizations
 ### Saliency Maps 
 
@@ -215,6 +224,8 @@ The Vanilla Backpropagation technique creates a saliency map by forward passing 
 </div>
 
 The saliency map resulting from using the Vanilla Backpropagation approach shows a very noisy image since background features pass through the ReLu activation functions which causes it to be unclear. However, we can see that the brighter red spots are focused around the eyes and mouth area which provide us with an indication of what the model focuses on when trying to classify the image.
+
+[Code for Vanilla Backpropagation Saliency Experiment](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/saliency_experiment/vanilla_bp_saliency.ipynb)
 
 **Using Guided Backpropagation**
 Guided Backpropagation combines the previously used Vanilla Backpropagation technique at ReLUs with DeconvNets. Guided backpropagation visualizes gradients with respect to the image where negative gradients are suppressed when backpropagating through ReLU layers. Essentially, this methodology aims to capture pixels detected by neurons, not the ones that suppress neurons. 
