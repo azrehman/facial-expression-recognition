@@ -30,10 +30,12 @@ Transfer learning is a machine learning technique in which a pre-trained model i
 The image below displays a schematic architecture of the pre-trained ResNet Model plus the added Dense layers for facial expression recognition. This pre-trained model has been trained with ImageNet which is a large dataset for the purposes of image classification which is suitable for FER. Repurposing a pre-trained deep CNN involves two steps, replacing the original classifier with a new one and fine-tuning the model. The added classifier is achieved by combining some number of dense layers, and this gives us the opportunity to fine-tune the dense layers and a selected few layers of the pre-trained model with our data, and this is possible because they are all in the same pipeline.
 Post training, we then feed our image into the model and the output of the final dense layer would be of length 7 each referring to a specific expression and their respective probabilities.
 
+<figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/transfer_learning.png" width="850" height="400">
 </div>
-
+<figcaption align = "center"><b>Fig 1. Transfer Learning</b></figcaption>
+</figure>
 
 ## Preprocessing Steps
 The preprocessing steps we implemented were to add rotation, horizontal flips, brightness, contrast and saturation modifications to expand the scope of the images we have in our dataset with the goal of improving our model’s performance. We then applied data normalization according to the ImageNet dataset standards and image resizing for faster training. Although grayscaling was a plausible preprocessing step that could be used to reduce noise, we did no proceed with this step as the pre-trained model we chose was trained on color images.
