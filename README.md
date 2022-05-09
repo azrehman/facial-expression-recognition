@@ -38,7 +38,7 @@ Post training, we then feed our image into the model and the output of the final
 </figure>
 
 ## Preprocessing Steps
-The preprocessing steps we implemented were to add rotation, horizontal flips, brightness, contrast and saturation modifications to expand the scope of the images we have in our dataset with the goal of improving our model’s performance. We then applied data normalization according to the ImageNet dataset standards and image resizing for faster training. Although grayscaling was a plausible preprocessing step that could be used to reduce noise, we did no proceed with this step as the pre-trained model we chose was trained on color images.
+The preprocessing steps we implemented were to add rotation, horizontal flips, brightness, contrast and saturation modifications to expand the scope of the images we have in our dataset with the goal of improving our model’s performance. A sample of the images created from these steps can be seen below in Fig 2. We then applied data normalization according to the ImageNet dataset standards and image resizing for faster training. Although grayscaling was a plausible preprocessing step that could be used to reduce noise, we did no proceed with this step as the pre-trained model we chose was trained on color images.
 
 <figure>
 <div align="center">
@@ -52,7 +52,7 @@ The preprocessing steps we implemented were to add rotation, horizontal flips, b
 
 ## Our Chosen Classifier Architecture 
 
-ResNet is the abbreviated name for a Residual Network. This deep CNN architecture can contain a numerous number of convolution layers ranging from 18 to 152. When performing our literature review, we saw that ResNet50 was quite popular and had higher accuracy rates compared to other models like VGG-16 and Inception-v3 etc. ResNet 50 specifically has 48 convolution layers, 1 max pool layer and 1 average pool layer. 
+ResNet is the abbreviated name for a Residual Network. This deep CNN architecture can contain a numerous number of convolution layers ranging from 18 to 152. When performing our literature review, we saw that ResNet50 was quite popular and had higher accuracy rates compared to other models like VGG-16 and Inception-v3 etc. Fig 3. shows that ResNet 50 specifically has 48 convolution layers, 1 max pool layer and 1 average pool layer.
 Another reason we chose ResNet was because we learned that the ResNet architecture overcame the “vanishing gradient” problem. A vanishing gradient occurs during backpropagation. When the training algorithm tries to find weights that bring the loss function to a minimal value, if there are too many layers, the gradient becomes very small until it disappears, and optimization cannot continue. Since, ResNet was capable of overcoming this challenge, it can be built with multiple layers and therefore outperform shallower networks.
 
 <figure>
@@ -95,15 +95,15 @@ Abdullah
 | *No. of Images* | 3920 | 3430 | 2450 | 980 | 490 |
 | *Accuracy* | 0.96 | 0.94 | 0.94 | 0.89 | 0.83 |
 
-<b> Table X.  </b>
+<b> Table X. Model accuracies against varying dataset sizes </b>
 <figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/dataset_size_graph.png" width="550" height="400">
 </div>
-<figcaption align = "center"><b>Fig 3. ResNet50 Architecture</b></figcaption>
+<figcaption align = "center"><b>Fig X. Graph of model accuracy vs dataset size</b></figcaption>
 </figure>
 
-The results that we found were quite impressive given that the amount of data the model was trained with was significantly less. The graph above shows the downward trend in accuracy the dataset size used for training decreases. There is roughly a 10% decrease in accuracy from using 80% of the dataset to only 10%. We attribute this decent accuracy to the fact that we used transfer learning instead of training the model from scratch. Additionally, since data augmentations were applied, it artificially increased the number of training samples which could have contributed to the higher accuracy rates. 
+The results that we found were quite impressive given that the amount of data the model was trained with was significantly less. The graph above shows the upward trend in accuracy the dataset size used for training increases. There is roughly a 10% decrease in accuracy from using 80% of the dataset to only 10%. We attribute this decent accuracy to the fact that we used transfer learning instead of training the model from scratch. Additionally, since data augmentations were applied, it artificially increased the number of training samples which could have contributed to the higher accuracy rates. 
 
 [Code for Dataset Size Experiment](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/dataset_size_experiment/dataset_size.ipynb)
 
@@ -193,7 +193,7 @@ level of 0.1 added to test set.</b></figcaption>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/adversarial_formula.png" width="1000" height="100">
 </div>
-<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+<figcaption align="center"><b>Fig X. Formula for creating adversarial images </b></figcaption>
 </figure>
 The implementation follows the formula as seen above, where it takes the original image and then adjusts each pixel of the input image based on the gradient and a factor which is the pixel-wise perturbation amount known as epsilon. As per theory, as the epsilon value increases, the image becomes more perturbed causing the model to become more inaccurate
 
@@ -203,7 +203,7 @@ We used increased epsilon values to create more perturbed images and tested our 
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/faces_epsilon_values.png" width="520" height="430">
 </div>
-<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+<figcaption align="center"><b>Fig X. Perturbations for images for different epsilon values </b></figcaption>
 </figure>
 
 **Steps of Adversarial Attack**
@@ -220,11 +220,11 @@ We used increased epsilon values to create more perturbed images and tested our 
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | **Test Accuracy** | 0.96 | 0.82 | 0.61 | 0.50 | 0.38 | 0.057 | 0.053 | 0.047|
 
-<b>Table X. </b>
+<b>Table X. Model accuracy for varying epsilon values </b>
 
 <figure>
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_graph.png" width="500" height="400">
-<figcaption><b>Fig X. AJDKSANF </b></figcaption>
+<figcaption><b>Fig X. Model accuracies against varying epsilon values </b></figcaption>
 </figure>
 
 The results show that even a small epsilon value can have quite a drastic impact on the performance of the model. An epsilon value of 0 gives us our original accuracy of 96% but an epsilon of 0.1 drops the accuracy significantly to 4.7%.
@@ -233,14 +233,14 @@ The results show that even a small epsilon value can have quite a drastic impact
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.png" width="900" height="250">
 </div>
-<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+<figcaption align="center"><b>Fig X. Model confidenece for image with no perturbation (epsilon = 0) </b></figcaption>
 </figure>
 
 <figure>
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.01.png" width="900" height="250">
 </div>
-<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+<figcaption align="center"><b>Fig X. Model confidence for image with some perturbation (epsilon = 0.1) </b></figcaption>
 </figure>
 
 The figure above shows that with an epsilon of 0 the model is very confident and there are no incorrect predictions but an epsilon of 0.01 the model is very confident but on the wrong expression label since it believes that a happy image is actually afraid. Although, the epsilon value is very small and the perturbed image looks untampered, the accuracy is much lower.
@@ -249,7 +249,7 @@ The figure above shows that with an epsilon of 0 the model is very confident and
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/epsilon_0.3.png" width="900" height="300">
 </div>
-<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+<figcaption align="center"><b>Fig X. Model confidence for image for high level of perturbation (epsilon = 0.3) </b></figcaption>
 </figure>
 
 Moreover, When the epsilon value is too high, such as 0.3, it acts similarly to adding noise to the image.  This is because the model still misclassifies the image but it is no longer confident in one label and is more confused which causes it to have some confidence in numerous labels.
@@ -282,7 +282,7 @@ helps to highlight what each layer of a convolutional layer focuses on.
 **Using Vanilla Backpropagation**
 The Vanilla Backpropagation technique creates a saliency map by forward passing the data and then passing the data backward to the input layer to get the gradient and then rendering the gadient as a normalized heatmap. 
 
-**Steps for Vanilla Backprogation Saliency Map**
+**Steps for Vanilla Backpropagation Saliency Map**
 1. Apply custom transformations (pre-processing) on image
 2. Retrieve model's output after passing image
 3. Do backpropagation to get the derivative of the output based on the image
@@ -293,7 +293,7 @@ The Vanilla Backpropagation technique creates a saliency map by forward passing 
 <div align="center">
 <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/vanilla_saliency_map.png" width="600" height="350">
 </div>
-<figcaption align="center"><b>Fig X. AJDKSANF </b></figcaption>
+<figcaption align="center"><b>Fig X. Saliency map using Vanilla Backpropagation Approach </b></figcaption>
 </figure>
 
 ** Result **
