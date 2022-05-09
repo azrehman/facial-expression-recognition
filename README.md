@@ -99,14 +99,14 @@ In contrast, we achieved **95.7%** accuracy with our model. The slight decrease 
 
 <figure>
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/numLayersVsAcc.png" width="550" height="400">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/numLayersVsAcc.png" width="550" height="400">
 </div>
 <figcaption align = "center"><b>Fig X. Number of CNN layers vs Accuracy</b></figcaption>
 </figure>
 
 According to our findings, the accuracy of all three models was significantly lower than that of our main ResNet50 classifier. We can see that raising the number of layers increases the amount of trainable parameters, which causes the accuracy rate to improve. This is expected because the CNN models took longer to converge because they were trained from scratch.
 
-[Code for SVM Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/model_size_experiment/Model_Size_Notebook.ipynb)
+[Code for Model Size Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/model_size_experiment/Model_Size_Notebook.ipynb)
 
 ### Experimenting Different Dataset Sizes
 **Motivation** Perform a sensitivity analysis to quantify the relationship between dataset size and model performance. We want to take fractions of the orginial dataset and observe how the model's ability to classify accurately changes. 
@@ -311,7 +311,7 @@ t-SNE works by first creating a probability distribution of datapoint distances 
 
 |2D - 20 perplexity value|2D - 100 perplexity value|3D - 20 perplexity value|3D - 100 perplexity value|
 | ------ | ------ | ------ | ------ |
-| <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/2-d-1.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/2-d-2.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/3-d-1.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/3-d-2.png"> |
+| <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/2-d-1.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/2-d-2.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/3-d-1.png"> | <img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/3-d-2.png"> |
 
 <b>Table X. This table depicts the resulting t-SNE visualization in 2D and 3D space viewing with 20 perplexity value and 100 perplexity value.</b>
 
@@ -319,7 +319,7 @@ t-SNE works by first creating a probability distribution of datapoint distances 
 **Results**  Our t-SNE performed extremely well. We find that as the perplexity increases the clusters become tighter and more defined. We discovered seven distinct clusters for each emotion as we investigated seven different emotions for our FER exploration. This visualization also does a great job supporting the accuracy we 
 achieved from our ResNet50 model.
 
-[Code for Dataset Size Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/tsne_visualization/tsne_visualization.ipynb)
+[Code for t-SNE Visualization](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/tsne_visualization/tsne_visualization.ipynb)
 
 ### Saliency Maps 
 
@@ -373,13 +373,6 @@ Based on the above results we can see that our fine-tuned classifier tends to fo
 
 
 ### Bonus: Image to Image Emotion Transfer
-
-For our bonus task, we wanted to explore beyond the scope of image classification. In particular, our goal was to explore unpaired image-to-image translation using GANs. Image-to-image translation is a class of computervision problems where the goal is to learn the mapping between an input image and an output image. In the context of our project, we ultimately wanted to see if we could use such image translation techniques to transform one expression into another. For example, if our input is an image of a person depicting the expression, “happy”, we hope to make our model output an image of the same person, except now depicting another expression, such as “sad” by using image-to-image translation.
-
-The model we chose for image-to-image translation was CUT-GAN (Contrastive Unpaired Translation GAN). We chose this model because CUT-GAN is less computationally expensive than other methods such as Cycle-GAN. Furthermore, CUT-GAN is supposed to perform better with less images due to using patchwise contrastive learning. 
-
-
-For our experiment, we used all straight facing angles of angry images and applied CUT-GAN to translate them into happy images. Since we only used straight images, we did not have many images for CUT-GAN to learn the mapping. Below, example results are shown for real angry images translated into fake happy images by CUT-GAN. From the results, we can empirically see that the generated images had a large amount of artifacts, and did not transform facial features well into the target expression. This is likely due to the fact of how complicated facial images are, as well as not using many images.
 
 
 
