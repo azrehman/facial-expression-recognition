@@ -99,7 +99,7 @@ In contrast, we achieved **95.7%** accuracy with our model. The slight decrease 
 
 <figure>
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/numLayersVsAcc.png" width="550" height="400">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/last-model-viz.png" width="550" height="400">
 </div>
 <figcaption align = "center"><b>Fig X. Number of CNN layers vs Accuracy</b></figcaption>
 </figure>
