@@ -65,9 +65,6 @@ data_transforms = {
 	])
 }
 
-
-
-# hyperparameters
 batch_size = 16
 
 # create train and validation datasets and apply transforms
