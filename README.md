@@ -266,6 +266,12 @@ these types of attacks since the attacker has access to the model parameters.
 ### t-SNE Feature Visualizations
 **Motivation**  Insight  is extremely important for machine learning models, especially when the number of features can be millions for that model. Since data, such as images or videos, is seen in high dimensions, we want humans to make sense of the data by visualizing high dimensional data.  We used t-SNE to achieve this, t-SNE stands for t-distributed stochastic neighbor embedding, and it essentially reduces dimensionality by mapping each data point to two or three dimensions. 
 
+<figure>
+<div align="center">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/Images/t-SNE_Formula.png" width="900" height="300">
+</div>
+<figcaption align="center"><b>Fig X. Model confidence for image for high level of perturbation (epsilon = 0.3) </b></figcaption>
+</figure>
 
 t-SNE works by first creating a probability distribution of datapoint distances in higher dimensional space and then creating a similar probability distribution for datapoint distances in the lower dimensional map. Then uses a divergence algorithm such as KL-divergence between the two different probability distributions.The t-SNE algorithm main hyperparameter is the perplexity parameter. The perplexity changes the amount of attention between local and global aspects of the data. Changes in the perplexity usually changes the performance of t-SNE, and typical values are between 5 and 50. So it’s important to experiment with different perplexity values to see different results.
 
