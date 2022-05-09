@@ -187,7 +187,7 @@ Upon performing gridsearch with cross validation, we obtained the following best
 
 **Motivation:** A prominent issue in the facial recognition domain is that most datasets severely lack diversity. This is especially true regarding race. The lack of diversity means that machine learning models trained on these datasets are significantly biased.
 With the many applications of facial recognition models, including law enforcement and healthcare, bias is a serious, yet often overlooked issue.\
-Our main classifier was trained on the KDEF dataset, which while balanced in gender, only includes faces of the white race [21]. So like most face image datasets, KDEF is obviously biased. To investigate the problems of training with such biased data, we use a second dataset which is racially diverse. This dataset, Radiate, is very similar to our original dataset except that it contains racially diverse faces (Asian, Hispanic, Black).
+Our main classifier was trained on the KDEF dataset, which while balanced in gender, only includes faces of the white race. So like most face image datasets, KDEF is obviously biased. To investigate the problems of training with such biased data, we use a second dataset which is racially diverse. This dataset, Radiate, is very similar to our original dataset except that it contains racially diverse faces (Asian, Hispanic, Black).
 
 **Steps of Bias Experiment**
 1. Load model trained on KDEF (not biased) images
