@@ -292,9 +292,13 @@ these types of attacks since the attacker has access to the model parameters.
 ### t-SNE Feature Visualizations
 **Motivation**  Insight  is extremely important for machine learning models, especially when the number of features can be millions for that model. Since data, such as images or videos, is seen in high dimensions, we want humans to make sense of the data by visualizing high dimensional data.  We used t-SNE to achieve this, t-SNE stands for t-distributed stochastic neighbor embedding, and it essentially reduces dimensionality by mapping each data point to two or three dimensions. 
 
+```python
+tSNE_embeddings = TSNE(n_components=2, perplexity=40, n_iter=1000).fit_transform(outputs)
+```
+
 <figure>
 <div align="center">
-<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/t-sne-FORM-Latest.png" width="150" height="75">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/t-sne-FORM-Latest.png" width="1000" height="100">
 </div>
 <figcaption align="center"><b>Fig X. t-SNE embeddings function </b></figcaption>
 </figure>
