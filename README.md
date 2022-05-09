@@ -371,10 +371,17 @@ Based on the above results we can see that our fine-tuned classifier tends to fo
 [Code for Guided Backpropagation Saliency Experiment](https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/saliency_experiment/guided_bp_saliency.ipynb)
 
 
-
 ### Bonus: Image to Image Emotion Transfer
 
+For our bonus task, we wanted to explore beyond the scope of image classification. In particular, our goal was to explore unpaired image-to-image translation using GANs. Image-to-image translation is a class of computervision problems where the goal is to learn the mapping between an input image and an output image. In the context of our project, we ultimately wanted to see if we could use such image translation techniques to transform one expression into another. For example, if our input is an image of a person depicting the expression, “happy”, we hope to make our model output an image of the same person, except now depicting another expression, such as “sad” by using image-to-image translation.
 
+The model we chose for image-to-image translation was [CUT-GAN](https://github.com/taesungp/contrastive-unpaired-translation) (Contrastive Unpaired Translation GAN). We chose this model because CUT-GAN is less computationally expensive than other methods such as Cycle-GAN. Furthermore, CUT-GAN is supposed to perform better with less images due to using patchwise contrastive learning. 
+
+
+For our experiment, we used all straight facing angles of angry images and applied CUT-GAN to translate them into happy images. Since we only used straight images, we did not have many images for CUT-GAN to learn the mapping. Below example results are shown for real angry images translated into fake happy images by CUT-GAN. From the results, we can empirically see that the generated images had a large amount of artifacts, and did not transform facial features well into the target expression. This is likely due to the fact of how complicated facial images are, as well as not using many images.
+
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/bonus_img1.png" width="600" height="350">
+<img src="https://git.cs.vt.edu/sdeepti/facial-expression-recognition/-/raw/main/Images/bonus_img2.png" width="600" height="350">
 
 
 
