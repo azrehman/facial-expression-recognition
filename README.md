@@ -63,7 +63,11 @@ Another reason we chose ResNet was because we learned that the ResNet architectu
 </figure>
 
 ## Baseline Model vs Our Classifier
-Abdullah
+
+We selected the paper [_Facial Emotion Recognition Using Transfer Learning in the Deep CNN_](https://mdpi-res.com/d_attachment/electronics/electronics-10-01036/article_deploy/electronics-10-01036-v2.pdf?version=1619665750) as our baseline for the project.\
+The baseline paper achieves **97.5%** accuracy on the KDEF dataset using transfer learning with ResNet-50.\
+In contrast, we achieved **95.7%** accuracy with our model. The slight decrease in our model accuracy is likely because some hyperparameters the baseline optimized were not discussed in the paper.
+
 
 [Code for Main Classifier](https://gitlab.cs.vt.edu/sdeepti/facial-expression-recognition/-/blob/main/main_resnet50/main_resnet50.ipynb)
 
